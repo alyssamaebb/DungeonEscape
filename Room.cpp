@@ -4,7 +4,7 @@ Room::Room(std::string n, std::string desc)
 {
 	name = n;
 	description = desc;
-	//monster = NULL;
+	monster = NULL;
 }
 // Function to connect dungeon rooms as an undirected graph
 void Room::connect(Room* other)
@@ -22,6 +22,11 @@ void Room::connect(Room* other)
 		other->neighbors.push_back(this);
 	}
 }
+// Function to set the monster in the room
+void Room::setMonster(Monster* m)
+{
+	monster = m;
+}
 //---------------------------------------------
 // Example Room Creation in main.cpp
 //---------------------------------------------
@@ -36,4 +41,6 @@ void Room::connect(Room* other)
 	// Connect rooms at the start of the game
 	room1->connect(room2);
 }
+// Connect rooms in the dungeon
+	room1->connect(room3);
 */
