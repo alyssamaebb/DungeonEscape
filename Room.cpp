@@ -23,10 +23,8 @@ void Room::connect(Room* other)
 	}
 }
 // Function to set the monster in the room
-void Room::setMonster(Monster* m)
-{
-	monster = m;
-}
+
+
 //---------------------------------------------
 // Example Room Creation in main.cpp
 //---------------------------------------------
