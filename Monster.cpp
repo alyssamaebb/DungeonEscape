@@ -1,4 +1,5 @@
 #include "escape_game_classes.h"
+#include "Monster.h"
 
 Monster::Monster(std::string n, int h, int a)
 {

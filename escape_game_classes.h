@@ -8,6 +8,7 @@
 #include <stack>
 #include <map>
 #include <regex>
+#include <unordered_set>
 
 // Forward declarations
 class Room;
@@ -43,16 +44,6 @@ public:
 };
 
 //---------------------------------------------
-// Monster
-//---------------------------------------------
-class Monster {
-public:
-    std::string name;
-    int hp, attack;
-    Monster(std::string n, int h, int a);
-};
-
-//---------------------------------------------
 // Skill Tree Node
 //---------------------------------------------
 class TreeNode {
@@ -79,20 +70,6 @@ public:
     void learnSkill(TreeNode* root);
     void printBattleLog();
     void useItem(std::string name);
-};
-
-//---------------------------------------------
-// Room (Graph Node)
-//---------------------------------------------
-class Room {
-public:
-    std::string name;
-    std::string description;
-    std::vector<Room*> neighbors;
-    Monster* monster;
-
-    Room(std::string n, std::string desc);
-    void connect(Room* other);
 };
 
 //---------------------------------------------
