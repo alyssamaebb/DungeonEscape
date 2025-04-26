@@ -1,14 +1,14 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), mana(100) {
+Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), hp(100), mana(100) {
     // Optionally, initialize the skill tree with a default structure
     SkillTree defaultTree;
     defaultTree.buildTree();
     skillTree = defaultTree;
 }
 
-Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr), mana(100) {
+Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr), hp(100), mana(100) {
     SkillTree defaultTree;
     defaultTree.buildTree();
     skillTree = defaultTree;
