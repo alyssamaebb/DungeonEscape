@@ -1,4 +1,3 @@
-// TEAMATE: Alyssa Bonifacio, Kandice Estrella, Joshua Seepersaud
 // escape_game_classes.h
 
 #ifndef ESCAPE_GAME_CLASSES_H

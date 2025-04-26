@@ -1,4 +1,3 @@
-// TEAMATE: Alyssa Bonifacio, Kandice Estrella, Joshua Seepersaud
 #include "escape_game_classes.h"
 #include "Room.h"
 #include "Monster.h"

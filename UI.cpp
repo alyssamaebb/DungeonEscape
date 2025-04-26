@@ -1,4 +1,3 @@
-// TEAMATE: Alyssa Bonifacio
 #include <iostream>
 #include "escape_game_classes.h"
 
