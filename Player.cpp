@@ -1,7 +1,18 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr) {}
+Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr) {
+    // Optionally, initialize the skill tree with a default structure
+    SkillTree defaultTree;
+    defaultTree.buildTree();
+    skillTree = defaultTree;
+}
+
+Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr) {
+    SkillTree defaultTree;
+    defaultTree.buildTree();
+    skillTree = defaultTree;
+}
 
 void Player::levelUp() {
     level++;
@@ -26,8 +37,6 @@ void Player::setSkillTree(SkillTree& tree) {
 bool Player::canUseSkill(const std::string& skillName) {
     return skillTree.isSkillUnlocked(skillName);
 }
-
-// === New Methods ===
 
 void Player::showInventory() {
     std::cout << "Inventory:\n";
@@ -103,5 +112,3 @@ void Player::addItem(const std::string& itemName) {
 void Player::logBattleAction(const std::string& action) {
     battleLog.push(action);
 }
-=======
-#include "escape_game_classes.h"

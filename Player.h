@@ -23,6 +23,10 @@ private:
     std::stack<std::string> battleLog; // History of battle actions
 
 public:
+    // Default constructor
+    Player();
+
+    // Parameterized constructor (already defined)
     Player(std::string name);
 
     void levelUp();
