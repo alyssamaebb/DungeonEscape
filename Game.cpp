@@ -26,18 +26,6 @@ Game::Game() {
     waitForEnter("You hear distant footsteps... and realize you are not alone.");
     waitForEnter("Somewhere ahead lies your only chance at escape - if you can survive.");
 
-	// Display game title
-	std::cout << "=============================\n";
-	std::cout << "  DUNGEON ESCAPE GAME\n";
-	std::cout << "=============================\n\n";
-
-    // Backstory one line at a time
-    waitForEnter("You wake up in a dark, cold dungeon with no memory of how you got here.");
-    waitForEnter("The stone walls are damp, and the air smells of rust and decay.");
-    waitForEnter("Whispers echo through the stone halls... are they real, or just in your mind?");
-    waitForEnter("You hear distant footsteps... and realize you are not alone.");
-    waitForEnter("Somewhere ahead lies your only chance at escape - if you can survive.");
-
 	// Create the dungeon
 	createDungeon();
 
