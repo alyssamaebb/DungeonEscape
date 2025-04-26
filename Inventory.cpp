@@ -2,18 +2,18 @@
 #include <iostream>
 #include <regex>
 
-// Constructor for InventoryNode
+// InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
     itemName = name;
     next = nullptr;
 }
 
-// Constructor for Inventory
+// Inventory constructor
 Inventory::Inventory() {
     head = nullptr;
 }
 
-// Destructor for Inventory: delete all nodes
+// Inventory destructor: deletes all inventory
 Inventory::~Inventory() {
     InventoryNode* current = head;
     while (current != nullptr) {
@@ -62,7 +62,7 @@ void Inventory::display() {
     }
 }
 
-// Sort the inventory using bubble sort
+// Sort the inventory using a simple bubble sort
 void Inventory::sort() {
     if (!head || !head->next) return;
 
