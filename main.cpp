@@ -1,4 +1,5 @@
 #include "escape_game_classes.h"
+#include "UI.h"
 #include <iostream>
 
 using namespace std;
@@ -11,12 +12,8 @@ int main()
 	
 	bool playing = true;
 	while (playing) {
-		std::cout << "\nWhat would  you like to do?\n";
-		std::cout << "1. Move to another room\n";
-		std::cout << "2. Quit game\n";
-		std::cout << "Choice: ";
-		int choice;
-		std::cin >> choice;
+		UI::displayMainMenu();
+		int choice = UI::getMenuChoice();
 
 		switch (choice) {
 		case 1:
