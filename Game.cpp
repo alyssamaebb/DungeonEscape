@@ -154,5 +154,3 @@ void Game::movePlayer() {
     // Display the new room's details
     displayCurrentRoom();
 }
-
-

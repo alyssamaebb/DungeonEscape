@@ -10,4 +10,3 @@ void UI::displayMainMenu() {
 	std::cout << "5. View Battle Log\n";
 	std::cout << "6. Exit Game\n";
 }
-
