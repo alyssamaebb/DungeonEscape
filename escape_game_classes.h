@@ -20,68 +20,6 @@ class Game;
 class UI;
 
 //---------------------------------------------
-// Inventory (Linked List)
-//---------------------------------------------
-class InventoryNode {
-public:
-    std::string itemName;
-    InventoryNode* next;
-    InventoryNode(std::string name);
-};
-
-class Inventory {
-private:
-    InventoryNode* head;
-public:
-    Inventory();
-    ~Inventory();
-    void addItem(std::string name);
-    bool removeItem(std::string name);
-    void display();
-    void sort();
-    bool search(std::string name);
-    bool regexSearch(std::string pattern);
-};
-
-//---------------------------------------------
-// Skill Tree Node
-//---------------------------------------------
-class TreeNode {
-public:
-    std::string skillName;
-    bool unlocked;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(std::string name);
-};
-
-//---------------------------------------------
-// Player
-//---------------------------------------------
-class Player {
-public:
-    int hp, attack;
-    Inventory inventory;
-    TreeNode* skillTreeRoot;
-    std::stack<std::string> battleLog;
-    std::vector<std::string> learnedSkills;
-
-    Player();
-    void learnSkill(TreeNode* root);
-    void printBattleLog();
-    void useItem(std::string name);
-};
-
-//---------------------------------------------
-// UI
-//---------------------------------------------
-class UI {
-public:
-    static void displayMainMenu();
-    static int getMenuChoice();
-};
-
-//---------------------------------------------
 // Game
 //---------------------------------------------
 class Game {
@@ -108,7 +46,7 @@ public:
     bool isGameOver();
     void endGame();
     // Utility
-    void displayMap();
+    void displayMap(); // Optional
     void saveGame();// Optional
     void loadGame();// Optional
 };
