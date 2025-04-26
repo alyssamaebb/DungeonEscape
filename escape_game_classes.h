@@ -24,7 +24,6 @@ class UI;
 //---------------------------------------------
 class Game {
 private:
-    Player player;
     std::map<std::string, Room*> dungeonMap;
     Room* currentRoom;
 public:
@@ -41,14 +40,14 @@ public:
     // Player interaction
     void displayCurrentRoom();
     void manageInventory();
-    void upgradeSkills(); // Optional if keeping the same method in the Skills class
+    //void upgradeSkills(); // Optional if keeping the same method in the Skills class
     // Game state
     bool isGameOver();
     void endGame();
     // Utility
-    void displayMap(); // Optional
-    void saveGame();// Optional
-    void loadGame();// Optional
+    //void displayMap(); // Optional
+    //void saveGame();// Optional
+    //void loadGame();// Optional
 };
 
 //---------------------------------------------

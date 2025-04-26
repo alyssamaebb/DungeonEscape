@@ -4,9 +4,6 @@
 #include "Player.h"
 
 Game::Game() {
-    // Initialize the player
-    //player = Player("Player 1");
-
 	// Create the dungeon
 	createDungeon();
 
@@ -131,5 +128,22 @@ void Game::movePlayer() {
     // Display the new room's details
     displayCurrentRoom();
 }
-
+void Game::start() {
+    return;
+}
+void Game::mainMenu() {
+    return;
+}
+void Game::initiateBattle() {
+    return;
+}
+void Game::manageInventory() {
+    return;
+}
+bool Game::isGameOver() {
+    return true;
+}
+void Game::endGame() {
+    return;
+}
 
