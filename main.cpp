@@ -20,6 +20,7 @@ int main()
 		switch (choice) {
 		case 1:
 			game.movePlayer(); // Move to another room
+			game.displayCurrentRoom(); // Show the new room immediately
 			break;
 		case 2:
 			player.showInventory(); // Display the player's inventory
