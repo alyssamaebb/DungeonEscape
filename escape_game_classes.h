@@ -20,25 +20,6 @@ class Game;
 class UI;
 
 //---------------------------------------------
-// Game
-//---------------------------------------------
-class Game {
-private:
-    std::map<std::string, Room*> dungeonMap;
-    Room* currentRoom;
-public:
-    Game();
-    ~Game();
-    // Core Methods
-    void movePlayer();
-    // Dungeon management
-    void createDungeon();
-    Room* findRoom(const std::string& roomName);
-    // Player interaction
-    void displayCurrentRoom();
-};
-
-//---------------------------------------------
 // Template Utility Functions
 //---------------------------------------------
 template <typename T>
