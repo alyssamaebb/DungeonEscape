@@ -20,6 +20,18 @@ int main()
 			game.movePlayer(); // Move to another room
 			break;
 		case 2:
+			player.showInventory(); // Display the player's inventory
+			break;
+		case 3: 
+			std::cout << "(Simple battle logic not fully implemented yet)\n";
+			break;
+		case 4: 
+			player.learnSkill(player.getSkillTree()->getRoot()); // Learn a new skill
+			break;
+		case 5:
+			player.printBattleLog(); // View battle log
+			break;
+		case 6:
 			std::cout << "Thank you for playing Escape Game!\n";
 			playing = false; // Exit the game
 			break;
