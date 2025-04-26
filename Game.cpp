@@ -1,14 +1,38 @@
 #include "escape_game_classes.h"
 #include "Room.h"
 #include "Monster.h"
-#include "Player.h"
+// #include "Player.h"
+
+#include <limits> // for clearing input buffer
+
+// Helper function to display a line and wait for ENTER
+void waitForEnter(const std::string& line) {
+    std::cout << line << "\n";
+	std::cout << "Press ENTER to continue...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.get(); // Wait for ENTER key
+}
 
 Game::Game() {
+    // Initialize the player
+    player = Player();
+
+	// Display game title
+	std::cout << "=============================\n";
+	std::cout << "  DUNGEON ESCAPE GAME\n";
+	std::cout << "=============================\n\n";
+
+    // Backstory one line at a time
+    waitForEnter("You wake up in a dark, cold dungeon with no memory of how you got here.");
+    waitForEnter("The stone walls are damp, and the air smells of rust and decay.");
+    waitForEnter("Whispers echo through the stone halls... are they real, or just in your mind?");
+    waitForEnter("You hear distant footsteps... and realize you are not alone.");
+    waitForEnter("Somewhere ahead lies your only chance at escape - if you can survive.");
+
 	// Create the dungeon
 	createDungeon();
 
-    // Display initial game state
-    std::cout << "Welcome to the Dungeon Escape Game!" << std::endl;
+    // Display starting room
     std::cout << "You are starting in: " << currentRoom->name << std::endl;
     std::cout << currentRoom->description << std::endl;
 }
@@ -25,25 +49,30 @@ void Game::createDungeon() {
     Room* room3 = new Room("Monster Lair", "A lair of a fearsome monster.");
     Room* room4 = new Room("Treasure Room", "A room filled with gold and jewels.");
     Room* room5 = new Room("Exit", "The exit of the dungeon.");
+    
     // Connect rooms
     room1->connect(room2);
     room2->connect(room3);
     room3->connect(room4);
     room4->connect(room5);
+
     // Add rooms to the dungeon map
     dungeonMap["Entrance"] = room1;
     dungeonMap["Hallway"] = room2;
     dungeonMap["Monster Lair"] = room3;
     dungeonMap["Treasure Room"] = room4;
     dungeonMap["Exit"] = room5;
+
     // Create and place monsters
     Monster* goblin = new Monster("Goblin", 30, 5);
     Monster* orc = new Monster("Orc", 50, 10);
     dungeonMap["Monster Lair"]->setMonster(goblin);
     dungeonMap["Treasure Room"]->setMonster(orc);
+    
     // Set the starting room
     currentRoom = dungeonMap["Entrance"];
 }
+
 Room* Game::findRoom(const std::string& roomName) {
     // Search for the room in the dungeon map
     auto it = dungeonMap.find(roomName);
@@ -128,22 +157,3 @@ void Game::movePlayer() {
     // Display the new room's details
     displayCurrentRoom();
 }
-void Game::start() {
-    return;
-}
-void Game::mainMenu() {
-    return;
-}
-void Game::initiateBattle() {
-    return;
-}
-void Game::manageInventory() {
-    return;
-}
-bool Game::isGameOver() {
-    return true;
-}
-void Game::endGame() {
-    return;
-}
-
