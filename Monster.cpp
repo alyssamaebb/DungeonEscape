@@ -8,3 +8,8 @@ Monster::Monster(std::string n, int h, int a)
 	hp = h;
 	attack = a;
 }
+void Monster::battle(Player& player)
+{
+	std::cout << "The monster hit you with an attack!" << std::endl;
+	//This is where the player's health should decrease
+}

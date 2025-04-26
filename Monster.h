@@ -10,6 +10,7 @@ public:
     std::string name;
     int hp, attack;
     Monster(std::string n, int h, int a);
+    void battle(Player& player);
 };
 
 #endif
