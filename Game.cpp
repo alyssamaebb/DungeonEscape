@@ -1,11 +1,11 @@
 #include "escape_game_classes.h"
 #include "Room.h"
 #include "Monster.h"
-// #include "Player.h"
+#include "Player.h"
 
 Game::Game() {
     // Initialize the player
-    player = Player();
+    //player = Player("Player 1");
 
 	// Create the dungeon
 	createDungeon();
