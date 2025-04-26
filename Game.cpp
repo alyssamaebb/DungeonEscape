@@ -7,6 +7,21 @@ Game::Game() {
     // Initialize the player
     player = Player();
 
+	// Create the dungeon
+	createDungeon();
+
+    // Display initial game state
+    std::cout << "Welcome to the Dungeon Escape Game!" << std::endl;
+    std::cout << "You are starting in: " << currentRoom->name << std::endl;
+    std::cout << currentRoom->description << std::endl;
+}
+Game::~Game() {
+    for (auto& pair : dungeonMap) {
+        delete pair.second; // Delete each room
+    }
+    dungeonMap.clear();
+}
+void Game::createDungeon() {
     // Create rooms
     Room* room1 = new Room("Entrance", "You are at the entrance of the dungeon.");
     Room* room2 = new Room("Hallway", "A long, dark hallway.");
@@ -35,9 +50,17 @@ Game::Game() {
 
     // Set the starting room
     currentRoom = dungeonMap["Entrance"];
-
-    // Display initial game state
-    std::cout << "Welcome to the Dungeon Escape Game!" << std::endl;
-    std::cout << "You are starting in: " << currentRoom->name << std::endl;
-    std::cout << currentRoom->description << std::endl;
 }
+Room* Game::findRoom(const std::string& roomName) {
+    // Search for the room in the dungeon map
+    auto it = dungeonMap.find(roomName);
+
+    // If the room is found, return the pointer to the room
+    if (it != dungeonMap.end()) {
+        return it->second;
+    }
+
+    // If the room is not found, return nullptr
+    return nullptr;
+}
+

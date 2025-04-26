@@ -43,13 +43,14 @@ void Room::dfs(Room* currentRoom, std::unordered_set<Room*>& visited)
 	if (currentRoom->monster != nullptr)
 	{
 		std::cout << "Monster in room: " << currentRoom->name << std::endl;
+		return;
 	}
 	else
 	{
 		std::cout << "No monster in this room." << std::endl;
 	}
 	// Recursively visit all connected rooms
-	for (Room* neighbor : currentRoom->neighbors) //May need to move this to inside else block to only call recursively if monster not found
+	for (Room* neighbor : currentRoom->neighbors)
 	{
 		if (visited.find(neighbor) == visited.end())
 		{
