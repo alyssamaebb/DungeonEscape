@@ -2,12 +2,14 @@
 
 #include "Game.h"
 #include "UI.h"
+#include "Player.h"
 #include <iostream>
 
 int main()
 {
 	Game game; // Create the game object
-
+	Player player; // Create the player object
+	
 	game.displayCurrentRoom(); // Show the starting room to the player
 	
 	bool playing = true;
