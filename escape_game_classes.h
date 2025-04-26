@@ -1,4 +1,4 @@
-// escape_game_classes.h
+// Created by Alyssa
 
 #ifndef ESCAPE_GAME_CLASSES_H
 #define ESCAPE_GAME_CLASSES_H
@@ -20,25 +20,6 @@ class Game;
 class UI;
 
 //---------------------------------------------
-// Game
-//---------------------------------------------
-class Game {
-private:
-    std::map<std::string, Room*> dungeonMap;
-    Room* currentRoom;
-public:
-    Game();
-    ~Game();
-    // Core Methods
-    void movePlayer();
-    // Dungeon management
-    void createDungeon();
-    Room* findRoom(const std::string& roomName);
-    // Player interaction
-    void displayCurrentRoom();
-};
-
-//---------------------------------------------
 // Template Utility Functions
 //---------------------------------------------
 template <typename T>
@@ -56,4 +37,4 @@ int search(T arr[], int size, T key) {
     return -1;
 }
 
-#endif // ESCAPE_GAME_H
+#endif // ESCAPE_GAMEC_CLASSES_H

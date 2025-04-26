@@ -1,5 +1,7 @@
+// Created by Alyssa
+
 #include <iostream>
-#include "escape_game_classes.h"
+#include "UI.h"
 
 void UI::displayMainMenu() {
 	std::cout << "\n====== Escape Game Menu ======\n";
