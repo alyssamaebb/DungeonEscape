@@ -3,7 +3,7 @@
 #include <iostream>
 #include "UI.h"
 
-// Diisplay the main meny options
+// Display the main menu options for the player
 void UI::displayMainMenu() {
 	std::cout << "\n====== Escape Game Menu ======\n";
 	std::cout << "1. Move to another room\n";
