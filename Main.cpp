@@ -1,6 +1,6 @@
 // Created by Alyssa
 
-#include "escape_game_classes.h"
+#include "Main.h"
 #include "UI.h"
 #include <iostream>
 
