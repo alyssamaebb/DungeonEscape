@@ -37,4 +37,4 @@ int search(T arr[], int size, T key) {
     return -1;
 }
 
-#endif // ESCAPE_GAME_H
+#endif // ESCAPE_GAMEC_CLASSES_H
