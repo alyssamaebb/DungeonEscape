@@ -1,17 +1,19 @@
-// Inventory.cpp
 #include "Inventory.h"
 #include <iostream>
 #include <regex>
 
+// InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
     itemName = name;
     next = nullptr;
 }
 
+// Inventory constructor
 Inventory::Inventory() {
     head = nullptr;
 }
 
+// Inventory destructor: deletes all inventory
 Inventory::~Inventory() {
     InventoryNode* current = head;
     while (current != nullptr) {
@@ -21,12 +23,14 @@ Inventory::~Inventory() {
     }
 }
 
+// Add a new item to the inventory
 void Inventory::addItem(std::string name) {
     InventoryNode* newNode = new InventoryNode(name);
     newNode->next = head;
     head = newNode;
 }
 
+// Remove an item by name
 bool Inventory::removeItem(std::string name) {
     InventoryNode* current = head;
     InventoryNode* previous = nullptr;
@@ -48,6 +52,7 @@ bool Inventory::removeItem(std::string name) {
     return false;
 }
 
+// Display all items in the inventory
 void Inventory::display() {
     InventoryNode* current = head;
     std::cout << "\nYour Inventory:\n";
@@ -57,8 +62,8 @@ void Inventory::display() {
     }
 }
 
+// Sort the inventory using a simple bubble sort
 void Inventory::sort() {
-    // Bubble sort the linked list
     if (!head || !head->next) return;
 
     bool swapped;
@@ -75,6 +80,7 @@ void Inventory::sort() {
     } while (swapped);
 }
 
+// Search for an item by name
 bool Inventory::search(std::string name) {
     InventoryNode* current = head;
     while (current != nullptr) {
@@ -84,6 +90,7 @@ bool Inventory::search(std::string name) {
     return false;
 }
 
+// Search for an item using a regular expression
 bool Inventory::regexSearch(std::string pattern) {
     InventoryNode* current = head;
     std::regex re(pattern);

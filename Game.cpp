@@ -48,10 +48,10 @@ Game::~Game() {
 void Game::createDungeon() {
     // Create rooms
     Room* room1 = new Room("Entrance", "You are at the entrance of the dungeon.");
-    Room* room2 = new Room("Hallway", "A long, dark hallway.");
-    Room* room3 = new Room("Monster Lair", "A lair of a fearsome monster.");
-    Room* room4 = new Room("Treasure Room", "A room filled with gold and jewels.");
-    Room* room5 = new Room("Exit", "The exit of the dungeon.");
+    Room* room2 = new Room("Inventory Room", "A dusty storage room filled with old supplies.");
+    Room* room3 = new Room("Monster Lair 1", "The lair of a fearsome goblin.");
+    Room* room4 = new Room("Monster Lair 2", "The lair of a brutal orc.");
+    Room* room5 = new Room("Exit", "The final door out of the dungeon.");
     
     // Connect rooms
     room1->connect(room2);
@@ -61,16 +61,16 @@ void Game::createDungeon() {
 
     // Add rooms to the dungeon map
     dungeonMap["Entrance"] = room1;
-    dungeonMap["Hallway"] = room2;
-    dungeonMap["Monster Lair"] = room3;
-    dungeonMap["Treasure Room"] = room4;
+    dungeonMap["Inventory Room"] = room2;
+    dungeonMap["Monster Lair 1"] = room3;
+    dungeonMap["Monster Lair 2"] = room4;
     dungeonMap["Exit"] = room5;
 
     // Create and place monsters
     Monster* goblin = new Monster("Goblin", 30, 5);
     Monster* orc = new Monster("Orc", 50, 10);
-    dungeonMap["Monster Lair"]->setMonster(goblin);
-    dungeonMap["Treasure Room"]->setMonster(orc);
+    dungeonMap["Monster Lair 1"]->setMonster(goblin);
+    dungeonMap["Monster Lair 2"]->setMonster(orc);
     
     // Set the starting room
     currentRoom = dungeonMap["Entrance"];
