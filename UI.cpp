@@ -11,9 +11,3 @@ void UI::displayMainMenu() {
 	std::cout << "6. Exit Game\n";
 }
 
-int UI::getMenuChoice() {
-	int choice;
-	std::cout << "Enter your choice: ";
-	std::cin >> choice;
-	return choice;
-}
