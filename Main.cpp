@@ -1,6 +1,6 @@
 // Created by Alyssa
 
-#include "Main.h"
+#include "Game.h"
 #include "UI.h"
 #include <iostream>
 
