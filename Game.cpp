@@ -14,9 +14,6 @@ void waitForEnter(const std::string& line) {
 }
 
 Game::Game() {
-    // Initialize the player
-    player = Player();
-
 	// Display game title
 	std::cout << "=============================\n";
 	std::cout << "  DUNGEON ESCAPE GAME\n";
