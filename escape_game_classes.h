@@ -92,10 +92,25 @@ private:
 public:
     Game();
     ~Game();
+    // Core Methods
     void start();
     void mainMenu();
     void movePlayer();
     void initiateBattle();
+    // Dungeon management
+    void createDungeon();
+    Room* findRoom(const std::string& roomName);
+    // Player interaction
+    void displayCurrentRoom();
+    void manageInventory();
+    void upgradeSkills(); // Optional if keeping the same method in the Skills class
+    // Game state
+    bool isGameOver();
+    void endGame();
+    // Utility
+    void displayMap();
+    void saveGame();// Optional
+    void loadGame();// Optional
 };
 
 //---------------------------------------------
