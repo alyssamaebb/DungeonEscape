@@ -6,14 +6,14 @@
 
 int main()
 {
-	Game game; // Create game object
+	Game game; // Create the game object
 
-	game.displayCurrentRoom(); // Show the starting room
+	game.displayCurrentRoom(); // Show the starting room to the player
 	
 	bool playing = true;
 	while (playing) {
-		UI::displayMainMenu(); // Show the menu
-		int choice = UI::getMenuChoice(); // Get the user's choice
+		UI::displayMainMenu(); // Display the main menu
+		int choice = UI::getMenuChoice(); // Get the user's menu choice
 
 		switch (choice) {
 		case 1:
