@@ -1,4 +1,4 @@
-// escape_game_classes.h
+// Created by Alyssa
 
 #ifndef ESCAPE_GAME_CLASSES_H
 #define ESCAPE_GAME_CLASSES_H
