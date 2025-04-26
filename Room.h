@@ -1,3 +1,4 @@
+// TEAMATE: Kandice Estrella
 #ifndef ROOM_H
 #define ROOM_H
 

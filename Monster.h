@@ -1,3 +1,4 @@
+// TEAMATE: Kandice Estrella, Joshua Seepersaud
 #ifndef MONSTER_H
 #define MONSTER_H
 
