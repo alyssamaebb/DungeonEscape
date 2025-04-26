@@ -4,18 +4,16 @@
 #include "UI.h"
 #include <iostream>
 
-using namespace std;
-
 int main()
 {
 	Game game; // Create game object
 
-	game.displayCurrentRoom(); // Show starting room
+	game.displayCurrentRoom(); // Show the starting room
 	
 	bool playing = true;
 	while (playing) {
-		UI::displayMainMenu();
-		int choice = UI::getMenuChoice();
+		UI::displayMainMenu(); // Show the menu
+		int choice = UI::getMenuChoice(); // Get the user's choice
 
 		switch (choice) {
 		case 1:
