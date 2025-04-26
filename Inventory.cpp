@@ -1,5 +1,5 @@
 // Inventory.cpp
-#include "escape_game_classes.h"
+#include "Inventory.h"
 #include <iostream>
 #include <regex>
 
