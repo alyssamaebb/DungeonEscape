@@ -1,14 +1,14 @@
 #include "Player.h"
 #include <iostream>
 
-Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr) {
+Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), mana(100) {
     // Optionally, initialize the skill tree with a default structure
     SkillTree defaultTree;
     defaultTree.buildTree();
     skillTree = defaultTree;
 }
 
-Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr) {
+Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr), mana(100) {
     SkillTree defaultTree;
     defaultTree.buildTree();
     skillTree = defaultTree;
@@ -16,6 +16,7 @@ Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr) 
 
 void Player::levelUp() {
     level++;
+    mana += 20;  // Increase mana as the player levels up (optional)
     std::cout << name << " leveled up to Level " << level << "!\n";
 }
 
@@ -27,6 +28,7 @@ void Player::unlockSkill(const std::string& skillName) {
 void Player::displayStats() {
     std::cout << "=== " << name << "'s Stats ===\n";
     std::cout << "Level: " << level << "\n";
+    std::cout << "Mana: " << mana << "\n";
     skillTree.displayTree();
 }
 
@@ -111,4 +113,28 @@ void Player::addItem(const std::string& itemName) {
 
 void Player::logBattleAction(const std::string& action) {
     battleLog.push(action);
+}
+
+// New useSkill method
+void Player::useSkill(const std::string& skillName) {
+    if (!canUseSkill(skillName)) {
+        std::cout << "Skill " << skillName << " is not unlocked yet.\n";
+        return;
+    }
+
+    SkillNode* skillNode = skillTree.find(skillTree.getRoot(), skillName);  // Get the skill node from the tree
+    if (!skillNode) {
+        std::cout << "Skill " << skillName << " not found in the skill tree.\n";
+        return;
+    }
+
+    if (mana >= skillNode->skill.manaCost) {
+        mana -= skillNode->skill.manaCost;  // Deduct mana
+        std::cout << name << " used " << skillName << "!\n";
+        std::cout << "Mana cost: " << skillNode->skill.manaCost << ", Remaining mana: " << mana << "\n";
+        // Here you could add the skill's effects (e.g., damage or other effects)
+    }
+    else {
+        std::cout << "Not enough mana to use " << skillName << ".\n";
+    }
 }
