@@ -31,6 +31,8 @@ public:
 
     // Parameterized constructor (already defined)
     Player(std::string name);
+    
+    int hp;
 
     void levelUp();
     void unlockSkill(const std::string& skillName);
