@@ -138,3 +138,7 @@ void Player::useSkill(const std::string& skillName) {
         std::cout << "Not enough mana to use " << skillName << ".\n";
     }
 }
+
+SkillTree& Player::getSkillTree() {
+	return skillTree;
+}
