@@ -17,13 +17,13 @@ private:
     SkillNode* root;
 
     void display(SkillNode* node, int indent = 0) const;
-    SkillNode* find(SkillNode* node, const std::string& skillName);
     bool isParentUnlocked(SkillNode* node, const std::string& skillName);
 
 public:
     SkillTree();
     ~SkillTree();
 
+    SkillNode* find(SkillNode* node, const std::string& skillName);
     void buildTree(); // Simple hardcoded tree for example
     void displayTree() const;
     void unlockSkill(const std::string& skillName);
