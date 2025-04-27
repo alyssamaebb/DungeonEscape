@@ -161,7 +161,4 @@ void Game::movePlayer() {
     // Move to the selected room
     currentRoom = currentRoom->neighbors[choice - 1];
     std::cout << "You moved to: " << currentRoom->name << std::endl;
-
-    // Display the new room's details
-    displayCurrentRoom();
 }

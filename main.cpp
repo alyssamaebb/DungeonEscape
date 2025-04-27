@@ -26,8 +26,15 @@ int main()
 			player.showInventory(); // Display the player's inventory
 			break;
 		case 3: 
-			std::cout << "(Simple battle logic not fully implemented yet)\n";
+		{
+			Room* currentRoom = game.getCurrentRoom(); // Use a getter
+			if (currentRoom && currentRoom->monster) {
+				player.battle(currentRoom->monster);
+			} else {
+				std::cout << "There is no monster to battle in this room.\n";
+			}
 			break;
+		}
 		case 4: 
 			player.learnSkill(player.getSkillTree()->getRoot()); // Learn a new skill
 			break;
