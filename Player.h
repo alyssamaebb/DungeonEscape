@@ -17,7 +17,6 @@ struct ItemNode {
 class Player {
 private:
     std::string name;
-    int hp;
     int mana;
     int level;
     SkillTree skillTree;
