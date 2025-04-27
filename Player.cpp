@@ -139,7 +139,7 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
         std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n";
 
         // Log the action
-        logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.getName() + ".");
+        logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.name + ".");
     }
     else {
         std::cout << "Not enough mana to use " << skillName << ".\n";
@@ -159,28 +159,47 @@ void Player::battle(Monster* monster) {
     std::cout << "A battle begins between " << name << " and " << monster->name << "!\n";
 
     while (hp > 0 && monster->hp > 0) {
-        // Player attacks monster
-        int playerDamage = 10; // Simple fixed damage (you can make this smarter later)
-        monster->hp -= playerDamage;
-        std::cout << name << " attacks " << monster->name << " for " << playerDamage << " damage!\n";
-        logBattleAction(name + " dealt " + std::to_string(playerDamage) + " damage to " + monster->name);
+        // Display player's stats
+        std::cout << "\n=== " << name << "'s Turn ===\n";
+        std::cout << "HP: " << hp << ", Mana: " << mana << "\n";
 
+        // Display available skills
+        std::cout << "Available Skills:\n";
+        for (const std::string& skillName : learnedSkills) {
+            std::cout << "- " << skillName << "\n";
+        }
+
+        // Player chooses a skill
+        std::cout << "Enter the name of the skill to use: ";
+        std::string chosenSkill;
+        std::cin >> chosenSkill;
+
+        // Use the chosen skill
+        if (canUseSkill(chosenSkill)) {
+            useSkill(chosenSkill, *monster);
+        }
+        else {
+            std::cout << "Invalid skill or not enough mana. Skipping turn.\n";
+        }
+
+        // Check if the monster is defeated
         if (monster->hp <= 0) {
             std::cout << monster->name << " has been defeated!\n";
             logBattleAction(monster->name + " was defeated!");
             break;
         }
 
-        // Monster attacks player
+        // Monster's turn to attack
+        std::cout << "\n=== " << monster->name << "'s Turn ===\n";
         hp -= monster->attack;
         std::cout << monster->name << " attacks " << name << " for " << monster->attack << " damage!\n";
         logBattleAction(monster->name + " dealt " + std::to_string(monster->attack) + " damage to " + name);
 
+        // Check if the player is defeated
         if (hp <= 0) {
             std::cout << name << " has been defeated!\n";
             logBattleAction(name + " was defeated!");
             break;
         }
     }
-}
 }

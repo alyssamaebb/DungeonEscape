@@ -5,6 +5,22 @@
 #include "Player.h"
 #include <iostream>
 
+// Helper function to handle battling
+void handleBattle(Game& game, Player& player)
+{
+    Room* currentRoom = game.getCurrentRoom();
+    if (currentRoom && currentRoom->monster) {
+        bool monsterDefeated = player.battle(currentRoom->monster);
+        if (monsterDefeated) {
+            delete currentRoom->monster;
+            currentRoom->monster = nullptr;
+        }
+    }
+    else {
+        std::cout << "There is no monster to battle in this room.\n";
+    }
+}
+
 int main()
 {
 	Game game; // Create the game object
@@ -26,15 +42,8 @@ int main()
 			player.showInventory(); // Display the player's inventory
 			break;
 		case 3: 
-		{
-			Room* currentRoom = game.getCurrentRoom(); // Use a getter
-			if (currentRoom && currentRoom->monster) {
-				player.battle(currentRoom->monster);
-			} else {
-				std::cout << "There is no monster to battle in this room.\n";
-			}
-			break;
-		}
+			handleBattle(game, player); // Use helper function for battling
+           		break;
 		case 4: 
 			player.learnSkill(player.getSkillTree()->getRoot()); // Learn a new skill
 			break;
