@@ -116,7 +116,7 @@ void Player::logBattleAction(const std::string& action) {
 }
 
 // New useSkill method
-void Player::useSkill(const std::string& skillName) {
+void Player::useSkill(const std::string& skillName, Monster& monster) {
     if (!canUseSkill(skillName)) {
         std::cout << "Skill " << skillName << " is not unlocked yet.\n";
         return;
@@ -132,7 +132,14 @@ void Player::useSkill(const std::string& skillName) {
         mana -= skillNode->skill.manaCost;  // Deduct mana
         std::cout << name << " used " << skillName << "!\n";
         std::cout << "Mana cost: " << skillNode->skill.manaCost << ", Remaining mana: " << mana << "\n";
-        // Here you could add the skill's effects (e.g., damage or other effects)
+
+        // Apply damage to the monster
+        int damage = skillNode->skill.damage;
+        monster.hp =- damage;  // Call the Monster's takeDamage method
+        std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n";
+
+        // Log the action
+        logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.getName() + ".");
     }
     else {
         std::cout << "Not enough mana to use " << skillName << ".\n";
