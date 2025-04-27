@@ -8,8 +8,8 @@
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player)
 {
-    Room* currentRoom = game.getCurrentRoom();
-    if (currentRoom && currentRoom->monster) {
+	Room* currentRoom = game.getCurrentRoom();
+	if (currentRoom && currentRoom->monster) {
         bool monsterDefeated = player.battle(currentRoom->monster);
         if (monsterDefeated) {
             delete currentRoom->monster;

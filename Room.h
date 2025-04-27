@@ -16,7 +16,6 @@ public:
     void connect(Room* other);
     void setMonster(Monster* m); // Set monster in the room
     void removeMonster(); // Remove monster from the room
-	void dfs(Room* currentRoom, std::unordered_set<Room*>& visited); // Depth-first search for room traversal
 };
 
 #endif
