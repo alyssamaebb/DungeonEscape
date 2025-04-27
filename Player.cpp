@@ -143,3 +143,38 @@ void Player::useSkill(const std::string& skillName) {
 SkillTree& Player::getSkillTree() {
 	return skillTree;
 }
+
+// ====== New battle function ======
+void Player::battle(Monster* monster) {
+    if (!monster) {
+        std::cout << "There is no monster here to battle.\n";
+        return;
+    }
+
+    std::cout << "A battle begins between " << name << " and " << monster->name << "!\n";
+
+    while (hp > 0 && monster->hp > 0) {
+        // Player attacks monster
+        int playerDamage = 10; // Simple fixed damage (you can make this smarter later)
+        monster->hp -= playerDamage;
+        std::cout << name << " attacks " << monster->name << " for " << playerDamage << " damage!\n";
+        logBattleAction(name + " dealt " + std::to_string(playerDamage) + " damage to " + monster->name);
+
+        if (monster->hp <= 0) {
+            std::cout << monster->name << " has been defeated!\n";
+            logBattleAction(monster->name + " was defeated!");
+            break;
+        }
+
+        // Monster attacks player
+        hp -= monster->attack;
+        std::cout << monster->name << " attacks " << name << " for " << monster->attack << " damage!\n";
+        logBattleAction(monster->name + " dealt " + std::to_string(monster->attack) + " damage to " + name);
+
+        if (hp <= 0) {
+            std::cout << name << " has been defeated!\n";
+            logBattleAction(name + " was defeated!");
+            break;
+        }
+    }
+}
