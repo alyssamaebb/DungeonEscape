@@ -116,7 +116,6 @@ void Player::logBattleAction(const std::string& action) {
     battleLog.push(action);
 }
 
-// New useSkill method
 void Player::useSkill(const std::string& skillName, Monster& monster) {
     if (!canUseSkill(skillName)) {
         std::cout << "Skill " << skillName << " is not unlocked yet.\n";
@@ -151,7 +150,6 @@ SkillTree& Player::getSkillTree() {
 	return skillTree;
 }
 
-// ====== New battle function ======
 void Player::battle(Monster* monster) {
     if (!monster) {
         std::cout << "There is no monster here to battle.\n";
