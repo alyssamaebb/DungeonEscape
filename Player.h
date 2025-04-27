@@ -52,6 +52,8 @@ public:
     // Add helper for adding to inventory or battle log if needed
     void addItem(const std::string& itemName);
     void logBattleAction(const std::string& action);
+
+    bool battle(Monster* monster);
 };
 
 #endif
