@@ -5,6 +5,7 @@
 #include <vector>
 #include <stack>
 #include "SkillTree.h"
+#include "Monster.h"
 
 // Simple inventory node for linked list
 struct ItemNode {
