@@ -139,7 +139,7 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
         std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n";
 
         // Log the action
-        logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.getName() + ".");
+        logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.name + ".");
     }
     else {
         std::cout << "Not enough mana to use " << skillName << ".\n";
