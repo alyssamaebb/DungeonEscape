@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Monster.h"
 #include <iostream>
 
 Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), hp(100), mana(100) {
