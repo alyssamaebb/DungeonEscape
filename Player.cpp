@@ -135,7 +135,7 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
 
         // Apply damage to the monster
         int damage = skillNode->skill.damage;
-        monster.hp =- damage;  // Call the Monster's takeDamage method
+        monster.hp -= damage;  // Call the Monster's takeDamage method
         std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n";
 
         // Log the action
@@ -149,7 +149,7 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
 bool Player::battle(Monster* monster) {
     if (!monster) {
         std::cout << "There is no monster here to battle.\n";
-        return;
+        return NULL;
     }
 
     std::cout << "A battle begins between " << name << " and " << monster->name << "!\n";
@@ -198,4 +198,5 @@ bool Player::battle(Monster* monster) {
             return false;
         }
     }
+	return false; // This line is unreachable but keeps the compiler happy
 }
