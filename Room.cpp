@@ -34,28 +34,3 @@ void Room::removeMonster()
 {
 	monster = nullptr;
 }
-
-void Room::dfs(Room* currentRoom, std::unordered_set<Room*>& visited)
-{
-	// Mark the current room as visited
-	visited.insert(currentRoom);
-	std::cout << "Visited: " << currentRoom->name << std::endl;
-	// Check if the room contains a monster
-	if (currentRoom->monster != nullptr)
-	{
-		std::cout << "Monster in room: " << currentRoom->name << std::endl;
-		return;
-	}
-	else
-	{
-		std::cout << "No monster in this room." << std::endl;
-	}
-	// Recursively visit all connected rooms
-	for (Room* neighbor : currentRoom->neighbors)
-	{
-		if (visited.find(neighbor) == visited.end())
-		{
-			neighbor->dfs(neighbor, visited);
-		}
-	}
-}
