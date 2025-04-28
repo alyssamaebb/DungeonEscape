@@ -10,11 +10,15 @@ void handleBattle(Game& game, Player& player)
 {
 	Room* currentRoom = game.getCurrentRoom();
 	if (currentRoom && currentRoom->monster) {
-        bool monsterDefeated = player.battle(currentRoom->monster);
+        bool monsterDefeated = player.battle(currentRoom.monster);
         if (monsterDefeated) {
             delete currentRoom->monster;
             currentRoom->monster = nullptr;
         }
+		else
+		{
+			game.endGame();
+		}
     }
     else {
         std::cout << "There is no monster to battle in this room.\n";
