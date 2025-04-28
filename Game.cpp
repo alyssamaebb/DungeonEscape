@@ -162,3 +162,7 @@ void Game::movePlayer() {
     currentRoom = currentRoom->neighbors[choice - 1];
     std::cout << "You moved to: " << currentRoom->name << std::endl;
 }
+void Game::endGame()
+{
+    std::cout << "GAME OVER!" << std::endl;
+}
