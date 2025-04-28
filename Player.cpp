@@ -146,11 +146,7 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
     }
 }
 
-SkillTree& Player::getSkillTree() {
-	return skillTree;
-}
-
-void Player::battle(Monster* monster) {
+bool Player::battle(Monster* monster) {
     if (!monster) {
         std::cout << "There is no monster here to battle.\n";
         return;
@@ -186,7 +182,7 @@ void Player::battle(Monster* monster) {
         if (monster->hp <= 0) {
             std::cout << monster->name << " has been defeated!\n";
             logBattleAction(monster->name + " was defeated!");
-            break;
+            return true;
         }
 
         // Monster's turn to attack
@@ -199,7 +195,7 @@ void Player::battle(Monster* monster) {
         if (hp <= 0) {
             std::cout << name << " has been defeated!\n";
             logBattleAction(name + " was defeated!");
-            break;
+            return false;
         }
     }
 }

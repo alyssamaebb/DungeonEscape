@@ -51,7 +51,7 @@ public:
     void addItem(const std::string& itemName);
     void logBattleAction(const std::string& action);
 
-    void battle(Monster* monster);
+    bool battle(Monster* monster);
 };
 
 #endif
