@@ -22,6 +22,9 @@ void waitForEnter(const std::string& line) {
 
 // Constructor: Set up game intro and create the dungeon
 Game::Game() {
+	// Flush any startup input garbage
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	
 	// Display game title
 	std::cout << "=============================\n";
 	std::cout << "  DUNGEON ESCAPE GAME\n";
