@@ -110,9 +110,6 @@ void Game::displayCurrentRoom() {
         std::cout << "A " << currentRoom->monster->name << " is here!" << std::endl;
         std::cout << "Monster HP: " << currentRoom->monster->hp << ", Attack: " << currentRoom->monster->attack << std::endl;
     }
-    else {
-        std::cout << "There are no monsters in this room." << std::endl;
-    }
 
     // Display neighboring rooms
     if (!currentRoom->neighbors.empty()) {
