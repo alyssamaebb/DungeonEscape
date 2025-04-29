@@ -13,7 +13,7 @@
 #endif
 
 void clearConsole();
-voic waitForEnter(const std::string& line);
+void waitForEnter(const std::string& line);
 
 void clearConsole() {
 #ifdef _WIN32
