@@ -156,6 +156,8 @@ void Game::movePlayer() {
     if (choice < 1 || choice > static_cast<int>(currentRoom->neighbors.size())) {
         std::cout << "Invalid choice. Please try again." << std::endl;
         return;
+    } else {
+	std:: cout << "INVALID CHOICE.";
     }
 
     // Move to the selected room
