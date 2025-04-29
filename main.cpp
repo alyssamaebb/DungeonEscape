@@ -8,9 +8,9 @@
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player)
 {
-	Room* currentRoom = game.getCurrentRoom();
+	Room* currentRoom = game.currentRoom;
 	if (currentRoom && currentRoom->monster) {
-        bool monsterDefeated = player.battle(currentRoom.monster);
+        bool monsterDefeated = player.battle(currentRoom->monster);
         if (monsterDefeated) {
             delete currentRoom->monster;
             currentRoom->monster = nullptr;
@@ -49,7 +49,7 @@ int main()
 			handleBattle(game, player); // Use helper function for battling
            		break;
 		case 4: 
-			player.learnSkill(player.getSkillTree()->getRoot()); // Learn a new skill
+			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
 			break;
 		case 5:
 			player.printBattleLog(); // View battle log

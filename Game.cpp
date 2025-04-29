@@ -6,12 +6,30 @@
 #include <limits> // for clearing input buffer
 #include <iostream>
 
+// #ifdef _WIN32
+//#include <windows.h>
+//#else
+//#include <cstdlib> // for system("clear")
+//#endif
+
+//void clearConsole();
+//void waitForEnter(const std::string& line);
+
+//void clearConsole() {
+//#ifdef _WIN32
+//	system("cls");
+//#else
+//	system("clear");
+//#endif
+//}
+
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
+  //  clearConsole();
     std::cout << line << "\n";
-	std::cout << "Press ENTER to continue...";
+    std::cout << "Press ENTER to continue...";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin.get(); // Wait for ENTER key
+    std::cin.get(); // Wait for ENTER key
 }
 
 // Constructor: Set up game intro and create the dungeon
@@ -56,8 +74,7 @@ void Game::createDungeon() {
     // Connect rooms
     room1->connect(room2);
     room2->connect(room3);
-    room3->connect(room4);
-    room4->connect(room5);
+    room3->connect(room1);
 
     // Add rooms to the dungeon map
     dungeonMap["Entrance"] = room1;
@@ -153,7 +170,7 @@ void Game::movePlayer() {
     std::cin >> choice;
 
     // Validate the choice
-    if (choice < 1 || choice > static_cast<int>(currentRoom->neighbors.size())) {
+    if (choice < 1 || choice > static_cast<int>(currentRoom->neighbors.size()+5)) {
         std::cout << "Invalid choice. Please try again." << std::endl;
         return;
     }
