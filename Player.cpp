@@ -163,23 +163,30 @@ bool Player::battle(Monster* monster) {
         std::cout << "\n=== " << name << "'s Turn ===\n";
         std::cout << "HP: " << hp << ", Mana: " << mana << "\n";
 
-        // Display available skills
+        // Display available skills with numbers
         std::cout << "Available Skills:\n";
-        for (const std::string& skillName : learnedSkills) {
-            std::cout << "- " << skillName << "\n";
+        for (size_t i = 0; i < learnedSkills.size(); ++i) {
+            std::cout << i + 1 << ". " << learnedSkills[i] << "\n";
         }
 
-        // Player chooses a skill
-        std::cout << "Enter the name of the skill to use: ";
-        std::string chosenSkill;
-        std::cin >> chosenSkill;
+        // Player chooses a skill by number
+        std::cout << "Enter the number of the skill to use: ";
+        int skillChoice;
+        std::cin >> skillChoice;
 
-        // Use the chosen skill
-        if (canUseSkill(chosenSkill)) {
-            useSkill(chosenSkill, *monster);
+        // Validate the input
+        if (skillChoice < 1 || skillChoice > static_cast<int>(learnedSkills.size())) {
+            std::cout << "Invalid choice. Skipping turn.\n";
         }
         else {
-            std::cout << "Invalid skill or not enough mana. Skipping turn.\n";
+            // Use the chosen skill
+            std::string chosenSkill = learnedSkills[skillChoice - 1];
+            if (canUseSkill(chosenSkill)) {
+                useSkill(chosenSkill, *monster);
+            }
+            else {
+                std::cout << "Invalid skill or not enough mana. Skipping turn.\n";
+            }
         }
 
         // Check if the monster is defeated
@@ -202,5 +209,5 @@ bool Player::battle(Monster* monster) {
             return false;
         }
     }
-	return false; // This line is unreachable but keeps the compiler happy
+    return false; // This line is unreachable but keeps the compiler happy
 }
