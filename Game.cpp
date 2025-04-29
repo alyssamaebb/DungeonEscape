@@ -12,6 +12,9 @@
 #include <cstdlib> // for system("clear")
 #endif
 
+void clearConsole();
+voic waitForEnter(const std::string& line);
+
 void clearConsole() {
 #ifdef _WIN32
 	system("cls");
