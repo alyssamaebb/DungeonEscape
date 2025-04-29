@@ -113,7 +113,7 @@ void Game::displayCurrentRoom() {
 
     // Display neighboring rooms
     if (!currentRoom->neighbors.empty()) {
-        std::cout << "Neighboring rooms:" << std::endl;
+        std::cout << ANSI_WARNING_YELL "Neighboring rooms:" ANSI_RESET << std::endl;
         for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
             std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
         }
