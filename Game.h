@@ -16,6 +16,11 @@ private:
     //Room* currentRoom; // Current room where the player is located
 public:
     Room* currentRoom; // Current room where the player is located
+    Room* room1;
+    Room* room2;
+    Room* room3;
+    Room* room4;
+    Room* room5;
     Game();
     ~Game();
     void movePlayer(); // Move to a neighboring room

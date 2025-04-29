@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "UI.h"
 #include "Player.h"
+#include "Room.h"
 #include <iostream>
 
 // Helper function to handle battling
@@ -14,6 +15,16 @@ void handleBattle(Game& game, Player& player)
         if (monsterDefeated) {
             delete currentRoom->monster;
             currentRoom->monster = nullptr;
+			if (currentRoom->name == "Monster Lair 1")
+			{
+				currentRoom->connect(game.room4);
+			}
+			else if (currentRoom->name == "Monster Lair 2")
+			{
+				currentRoom->connect(game.room1);
+				currentRoom->connect(game.room2);
+				currentRoom->connect(game.room5);
+			}
         }
 		else
 		{
