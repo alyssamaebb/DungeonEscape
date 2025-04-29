@@ -2,6 +2,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include <vector>
+#include "Monster.h"
 //---------------------------------------------
 // Room (Graph Node)
 //---------------------------------------------
