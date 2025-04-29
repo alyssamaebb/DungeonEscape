@@ -7,14 +7,15 @@
 #include <iostream>
 
 void clearConsole() {
-	std::cout << "\033[2J\033[1;1H";
+	std::cout << "\033[2J\033[1;1H" << std::flush;
 }
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
     clearConsole();
     std::cout << line << "\n";
-    std::cout << "Press ENTER to continue...";
+    std::cout << "Press ENTER to continue..." << std::flush;
+	
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
