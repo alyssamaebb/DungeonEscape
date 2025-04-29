@@ -54,7 +54,7 @@ int main()
 			game.displayCurrentRoom(); // Show the new room immediately
 			break;
 		case 2:
-			player.showInventory(); // Display the player's inventory
+			//player.showInventory(); // Display the player's inventory
 			break;
 		case 3: 
 			handleBattle(game, player); // Use helper function for battling
