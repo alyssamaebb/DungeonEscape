@@ -35,10 +35,6 @@ Game::Game() {
 
 	// Create the dungeon
 	createDungeon();
-
-    // Display starting room
-    std::cout << "You are starting in: " << currentRoom->name << std::endl;
-    std::cout << currentRoom->description << std::endl;
 }
 
 // Destructor: Clean up dynamically allocated rooms
