@@ -7,15 +7,14 @@
 #include <iostream>
 
 #define ANSI_RESET        "\033[0m"
-#define ANSI_DIM_GRAY     "\033[90m"
 #define ANSI_BLOOD_RED    "\033[91m"
-#define ANSI_DIM          "\033[2m"
-#define ANSI_UNDERLINE    "\033[4m"
+#define ANSI_WARNING_YELL "\033[93m"
+#define ANSI_BRIGHT_WHITE "\033[97m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
-    std::cout << ANSI_DIM_GRAY << line << "\n";
-    std::cout << ANSI_DIM << "Press ENTER to continue..." << ANSI_RESET;
+    std::cout << line << "\n";
+    std::cout << ANSI_BRIGHT_WHITE << "Press ENTER to continue..." << ANSI_RESET;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
@@ -28,11 +27,11 @@ Game::Game() {
 	std::cout << "=============================\n\n";
 
     // Backstory one line at a time
-    waitForEnter("You wake up in a dark, cold dungeon with no memory of how you got here.");
-    waitForEnter("The stone walls are damp, and the air smells of rust and decay.");
-    waitForEnter("Whispers echo through the stone halls... are they real, or just in your mind?");
-    waitForEnter("You hear distant footsteps... and realize you are not alone.");
-    waitForEnter("Somewhere ahead lies your only chance at escape - if you can survive.");
+    waitForEnter(ANSI_BLOOD_RED "You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
+    waitForEnter(ANSII_WAWRNING_YELL "You hear distant footsteps... and realize you are not alone." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
 
 	// Create the dungeon
 	createDungeon();
