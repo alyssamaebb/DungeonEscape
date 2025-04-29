@@ -6,12 +6,27 @@
 #include <limits> // for clearing input buffer
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <cstdlib> // for system("clear")
+#endif
+
+void clearConsole() {
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
+}
+
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
+    clearConsole();
     std::cout << line << "\n";
-	std::cout << "Press ENTER to continue...";
+    std::cout << "Press ENTER to continue...";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::cin.get(); // Wait for ENTER key
+    std::cin.get(); // Wait for ENTER key
 }
 
 // Constructor: Set up game intro and create the dungeon
