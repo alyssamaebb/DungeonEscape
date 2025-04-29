@@ -6,11 +6,16 @@
 #include <limits> // for clearing input buffer
 #include <iostream>
 
+#define ANSI_RESET        "\033[0m"
+#define ANSI_DIM_GRAY     "\033[90m"
+#define ANSI_BLOOD_RED    "\033[91m"
+#define ANSI_DIM          "\033[2m"
+#define ANSI_UNDERLINE    "\033[4m"
+
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
-    std::cout << line << "\n";
-    std::cout << "Press ENTER to continue...";
-	
+    std::cout << ANSI_DIM_GRAY << line << "\n";
+    std::cout << ANSI_DIM << "Press ENTER to continue..." << ANSI_RESET;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
