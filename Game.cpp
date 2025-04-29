@@ -6,36 +6,32 @@
 #include <limits> // for clearing input buffer
 #include <iostream>
 
-void clearConsole() {
-	std::cout << "\033[2J\033[1;1H" << std::flush;
-}
+#define ANSI_RESET        "\033[0m"
+#define ANSI_BLOOD_RED    "\033[91m"
+#define ANSI_WARNING_YELL "\033[93m"
+#define ANSI_BRIGHT_WHITE "\033[97m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
-    clearConsole();
     std::cout << line << "\n";
-    std::cout << "Press ENTER to continue..." << std::flush;
-	
+    std::cout << ANSI_BRIGHT_WHITE << "Press ENTER to continue..." << ANSI_RESET;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
 
 // Constructor: Set up game intro and create the dungeon
 Game::Game() {
-	// Flush any startup input garbage
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	
 	// Display game title
 	std::cout << "=============================\n";
 	std::cout << "  DUNGEON ESCAPE GAME\n";
 	std::cout << "=============================\n\n";
 
     // Backstory one line at a time
-    waitForEnter("You wake up in a dark, cold dungeon with no memory of how you got here.");
-    waitForEnter("The stone walls are damp, and the air smells of rust and decay.");
-    waitForEnter("Whispers echo through the stone halls... are they real, or just in your mind?");
-    waitForEnter("You hear distant footsteps... and realize you are not alone.");
-    waitForEnter("Somewhere ahead lies your only chance at escape - if you can survive.");
+    waitForEnter(ANSI_BLOOD_RED "You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "You hear distant footsteps... and realize you are not alone." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
 
 	// Create the dungeon
 	createDungeon();
