@@ -4,15 +4,11 @@
 
 Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), hp(100), mana(100) {
     // Optionally, initialize the skill tree with a default structure
-    SkillTree defaultTree;
-    defaultTree.buildTree();
-    skillTree = defaultTree;
+	skillTree.buildTree();
 }
 
 Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr), hp(100), mana(100) {
-    SkillTree defaultTree;
-    defaultTree.buildTree();
-    skillTree = defaultTree;
+	skillTree.buildTree();  // Build the skill tree when the player is created
 }
 
 void Player::levelUp() {
@@ -70,7 +66,10 @@ void Player::useItem(const std::string& itemName) {
 }
 
 void Player::learnSkill(SkillNode* node) {
-    if (!node) return;
+    if (!node) {
+        std::cout << "Error: SkillNode is null.\n";
+        return;
+    }
 
     // Preorder traversal: visit, left, right
     if (!node->skill.isUnlocked) {
