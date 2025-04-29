@@ -17,10 +17,6 @@ void Room::connect(Room* other)
 	if (std::find(neighbors.begin(), neighbors.end(), other) == neighbors.end())
 	{
 		neighbors.push_back(other);
-	}
-	// Connect this room to the other room if it is not already connected
-	if (std::find(other->neighbors.begin(), other->neighbors.end(), this) == other->neighbors.end())
-	{
 		other->neighbors.push_back(this);
 	}
 }
