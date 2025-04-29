@@ -2,12 +2,14 @@
 #include "Monster.h"
 #include <iostream>
 
-Player::Player() : name("Unknown Player"), level(1), inventoryHead(nullptr), hp(100), mana(100) {
+// default constructor
+Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
     // Optionally, initialize the skill tree with a default structure
 	skillTree.buildTree();
 }
 
-Player::Player(std::string name) : name(name), level(1), inventoryHead(nullptr), hp(100), mana(100) {
+// parameterized constructor
+Player::Player(std::string name) : name(name), level(1), hp(100), mana(100) {
 	skillTree.buildTree();  // Build the skill tree when the player is created
 }
 
@@ -37,39 +39,15 @@ bool Player::canUseSkill(const std::string& skillName) {
     return skillTree.isSkillUnlocked(skillName);
 }
 
-void Player::showInventory() {
-    std::cout << "Inventory:\n";
-    ItemNode* current = inventoryHead;
-    while (current) {
-        std::cout << "- " << current->itemName << "\n";
-        current = current->next;
-    }
-}
-
-void Player::useItem(const std::string& itemName) {
-    ItemNode* current = inventoryHead;
-    ItemNode* prev = nullptr;
-
-    while (current) {
-        if (current->itemName == itemName) {
-            if (prev) prev->next = current->next;
-            else inventoryHead = current->next;
-
-            std::cout << "Used item: " << itemName << "\n";
-            delete current;
-            return;
-        }
-        prev = current;
-        current = current->next;
-    }
-    std::cout << "Item not found: " << itemName << "\n";
-}
 
 void Player::learnSkill(SkillNode* node) {
     if (!node) {
         std::cout << "Error: SkillNode is null.\n";
         return;
     }
+
+    skillTree.displayTree();  // Display the skill tree
+    std::cout << std::endl;
 
     // Preorder traversal: visit, left, right
     if (!node->skill.isUnlocked) {
@@ -79,6 +57,7 @@ void Player::learnSkill(SkillNode* node) {
         std::cout << "  Unlock this skill? (y/n): ";
         char choice;
         std::cin >> choice;
+        std::cout << std::endl;
         if (choice == 'y' || choice == 'Y') {
             if (skillTree.isSkillUnlocked(node->skill.name)) {
                 std::cout << "Already unlocked.\n";
@@ -86,7 +65,7 @@ void Player::learnSkill(SkillNode* node) {
             else {
                 skillTree.unlockSkill(node->skill.name);
                 learnedSkills.push_back(node->skill.name);
-                std::cout << "Skill unlocked: " << node->skill.name << "\n";
+                std::cout << "Skill unlocked: " << node->skill.name << "\n\n";
             }
         }
     }
@@ -104,12 +83,6 @@ void Player::printBattleLog() {
     }
 }
 
-// Optional helper
-void Player::addItem(const std::string& itemName) {
-    ItemNode* newItem = new ItemNode(itemName);
-    newItem->next = inventoryHead;
-    inventoryHead = newItem;
-}
 
 void Player::logBattleAction(const std::string& action) {
     battleLog.push(action);
