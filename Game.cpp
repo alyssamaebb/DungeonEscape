@@ -56,8 +56,6 @@ void Game::createDungeon() {
     // Connect rooms
     room1->connect(room2);
     room2->connect(room3);
-    room3->connect(room4);
-    room4->connect(room5);
 
     // Add rooms to the dungeon map
     dungeonMap["Entrance"] = room1;
