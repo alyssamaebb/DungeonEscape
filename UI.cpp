@@ -22,7 +22,7 @@ void UI::displayMainMenu() {
 // Get the player's menu choice
 int UI::getMenuChoice() {
 	int choice;
-	std::cout << ANSI_WARNING_YELL "Enter your choice: " ANSI_RESET;
+	std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
 	std::cin >> choice;
 	return choice;
 }
