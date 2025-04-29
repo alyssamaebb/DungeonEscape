@@ -146,6 +146,11 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
     }
 }
 
+SkillTree& Player::getSkillTree()
+{
+	return skillTree;
+}
+
 bool Player::battle(Monster* monster) {
     if (!monster) {
         std::cout << "There is no monster here to battle.\n";

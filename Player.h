@@ -38,7 +38,7 @@ public:
     void setSkillTree(SkillTree& tree);
     bool canUseSkill(const std::string& skillName);
     void useSkill(const std::string& skillName, Monster& monster);
-	SkillTree& getSkillTree() { return skillTree; } // Getter for skill tree
+    SkillTree& getSkillTree(); // Getter for skill tree
 
     // New methods
     void showInventory();

@@ -88,3 +88,8 @@ bool SkillTree::isSkillUnlocked(const std::string& skillName) {
     SkillNode* node = find(root, skillName);
     return node && node->skill.isUnlocked;
 }
+
+SkillNode* SkillTree::getRoot()
+{
+    return root;
+}

@@ -28,7 +28,7 @@ public:
     void displayTree() const;
     void unlockSkill(const std::string& skillName);
     bool isSkillUnlocked(const std::string& skillName);
-    SkillNode* getRoot() const { return root; }
+    SkillNode* getRoot();
 
     void deleteTree(SkillNode* node); // Destructor helper
 };
