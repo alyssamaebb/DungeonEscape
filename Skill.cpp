@@ -10,7 +10,7 @@ Skill::Skill(std::string name, int manaCost, int damage)
 
 void Skill::unlock() {
     isUnlocked = true;
-    std::cout << "You have unlocked the skill: " << ANSI_BLOOD_RED << name << ANSI_RESET << "!\n";
+    std::cout << "You have unlocked the skill: " << ANSI_BLOOD_RED << name << ANSI_RESET << "!\n\n";
 }
 
 void Skill::display() const {
