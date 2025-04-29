@@ -9,12 +9,12 @@
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
 #define ANSI_WARNING_YELL "\033[93m"
-#define ANSI_BRIGHT_WHITE "\033[97m"
+#define ANSI_GREY "\x1b[90m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
     std::cout << line << "\n";
-    std::cout << ANSI_BRIGHT_WHITE << "Press ENTER to continue..." << ANSI_RESET;
+    std::cout << ANSI_GREY << "Press ENTER to continue..." << ANSI_RESET;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
@@ -35,10 +35,6 @@ Game::Game() {
 
 	// Create the dungeon
 	createDungeon();
-
-    // Display starting room
-    std::cout << "You are starting in: " << currentRoom->name << std::endl;
-    std::cout << currentRoom->description << std::endl;
 }
 
 // Destructor: Clean up dynamically allocated rooms
@@ -114,13 +110,10 @@ void Game::displayCurrentRoom() {
         std::cout << "A " << currentRoom->monster->name << " is here!" << std::endl;
         std::cout << "Monster HP: " << currentRoom->monster->hp << ", Attack: " << currentRoom->monster->attack << std::endl;
     }
-    else {
-        std::cout << "There are no monsters in this room." << std::endl;
-    }
 
     // Display neighboring rooms
     if (!currentRoom->neighbors.empty()) {
-        std::cout << "Neighboring rooms:" << std::endl;
+        std::cout << ANSI_WARNING_YELL "Neighboring rooms:" ANSI_RESET << std::endl;
         for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
             std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
         }
