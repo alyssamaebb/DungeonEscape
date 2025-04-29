@@ -9,12 +9,12 @@
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
 #define ANSI_WARNING_YELL "\033[93m"
-#define ANSI_BRIGHT_WHITE "\033[97m"
+#define ANSI_GREY "\x1b[90m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
     std::cout << line << "\n";
-    std::cout << ANSI_BRIGHT_WHITE << "Press ENTER to continue..." << ANSI_RESET;
+    std::cout << ANSI_GREY << "Press ENTER to continue..." << ANSI_RESET;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
