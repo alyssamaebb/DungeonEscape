@@ -49,7 +49,7 @@ int main()
 			handleBattle(game, player); // Use helper function for battling
            		break;
 		case 4: 
-			player.learnSkill(player.getSkillTree()->getRoot()); // Learn a new skill
+			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
 			break;
 		case 5:
 			player.printBattleLog(); // View battle log
