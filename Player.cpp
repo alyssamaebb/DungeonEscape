@@ -45,8 +45,6 @@ void Player::learnSkill(SkillNode* node) {
     if (!node) return;
 
     // clear the screen
-    system("cls");
-
     skillTree.displayTree();  // Display the skill tree
     std::cout << std::endl;
 
@@ -64,9 +62,9 @@ void Player::learnSkill(SkillNode* node) {
                 std::cout << "Already unlocked.\n";
             }
             else {
+                system("cls");
                 skillTree.unlockSkill(node->skill.name);
                 learnedSkills.push_back(node->skill.name);
-                std::cout << "Skill unlocked: " << node->skill.name << "\n\n";
             }
         }
     }
