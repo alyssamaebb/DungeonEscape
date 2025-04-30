@@ -48,10 +48,10 @@ Game::~Game() {
 void Game::createDungeon() {
     // Create rooms
     room1 = new Room("Entrance", "You are at the entrance of the dungeon.");
-    room2 = new Room("Inventory Room", "A dusty storage room filled with old supplies.");
-    room3 = new Room("Monster Lair 1", "The lair of a fearsome goblin.");
-    room4 = new Room("Monster Lair 2", "The lair of a brutal orc.");
-    room5 = new Room("Exit", "The final door out of the dungeon.");
+    room2 = new Room("Inventory Room", "You are in a dusty storage room filled with old supplies.");
+    room3 = new Room("Monster Lair 1", "You are in the lair of a fearsome goblin.");
+    room4 = new Room("Monster Lair 2", "You are in the lair of a brutal orc.");
+    room5 = new Room("Exit", "You have reached the final door out of the dungeon.");
     
     // Connect rooms
     room1->connect(room2);
@@ -99,9 +99,10 @@ void Game::displayCurrentRoom() {
     }
 
     // Display the room name
-    std::cout << "You are in: " << currentRoom->name << std::endl;
+    //std::cout << "\nYou are in: " << currentRoom->name << std::endl;
 
     // Display the room description
+    std::cout << "==================================================\n";
     std::cout << currentRoom->description << std::endl;
 
     // Display monster information (if present)
@@ -116,6 +117,7 @@ void Game::displayCurrentRoom() {
         for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
             std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
         }
+        std::cout << "==================================================\n";
     }
     else {
         std::cout << "There are no neighboring rooms." << std::endl;
@@ -129,10 +131,6 @@ void Game::movePlayer() {
         std::cout << "Error: You are not in any room!" << std::endl;
         return;
     }
-
-    // Display the current room and its neighbors
-    std::cout << "You are in: " << currentRoom->name << std::endl;
-    std::cout << currentRoom->description << std::endl;
 
     if (currentRoom->neighbors.empty()) {
         std::cout << "There are no neighboring rooms to move to." << std::endl;
