@@ -23,7 +23,6 @@ void SkillTree::buildTree() {
     root->right = new SkillNode(Skill("Inferno", 20, 50));
     root->left->left = new SkillNode(Skill("Ember Nova", 25, 70));
     root->right->right = new SkillNode(Skill("Hellfire", 30, 90));
-	std::cout << "Skill tree built successfully.\n" << std::endl;
 }
 
 void SkillTree::display(SkillNode* node, int indent) const {
@@ -38,9 +37,9 @@ void SkillTree::display(SkillNode* node, int indent) const {
 }
 
 void SkillTree::displayTree() const {
-    std::cout << "=== Skill Tree ===\n";
+    std::cout << "====================== Skill Tree ======================\n";
     display(root);
-    std::cout << "==================\n";
+    std::cout << "========================================================\n";
 }
 
 SkillNode* SkillTree::find(SkillNode* node, const std::string& skillName) {
