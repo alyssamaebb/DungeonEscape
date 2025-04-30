@@ -98,9 +98,6 @@ void Game::displayCurrentRoom() {
         return;
     }
 
-    // Display the room name
-    //std::cout << "\nYou are in: " << currentRoom->name << std::endl;
-
     // Display the room description
     std::cout << "==================================================\n";
     std::cout << currentRoom->description << std::endl;
