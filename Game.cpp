@@ -15,7 +15,6 @@
 void waitForEnter(const std::string& line) {
     std::cout << line << "\n";
     std::cout << ANSI_GREY << "Press ENTER to continue..." << ANSI_RESET;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get(); // Wait for ENTER key
 }
 
