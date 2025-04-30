@@ -57,12 +57,12 @@ void Player::learnSkill(SkillNode* node) {
         char choice;
         std::cin >> choice;
         std::cout << std::endl;
+        system("cls");
         if (choice == 'y' || choice == 'Y') {
             if (skillTree.isSkillUnlocked(node->skill.name)) {
                 std::cout << "Already unlocked.\n";
             }
             else {
-                system("cls");
                 skillTree.unlockSkill(node->skill.name);
                 learnedSkills.push_back(node->skill.name);
             }
