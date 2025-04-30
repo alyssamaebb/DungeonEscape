@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Monster.h"
 #include <iostream>
+#include <cstdlib>
 
 // default constructor
 Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
@@ -41,10 +42,10 @@ bool Player::canUseSkill(const std::string& skillName) {
 
 
 void Player::learnSkill(SkillNode* node) {
-    if (!node) {
-        std::cout << "Error: SkillNode is null.\n";
-        return;
-    }
+    if (!node) return;
+
+    // clear the screen
+    system("cls");
 
     skillTree.displayTree();  // Display the skill tree
     std::cout << std::endl;
@@ -102,13 +103,14 @@ void Player::useSkill(const std::string& skillName, Monster& monster) {
 
     if (mana >= skillNode->skill.manaCost) {
         mana -= skillNode->skill.manaCost;  // Deduct mana
+        std::cout << std::endl;
         std::cout << name << " used " << skillName << "!\n";
-        std::cout << "Mana cost: " << skillNode->skill.manaCost << ", Remaining mana: " << mana << "\n";
+        std::cout << "Mana cost: " << skillNode->skill.manaCost << ", Remaining mana: " << mana << "\n\n";
 
         // Apply damage to the monster
         int damage = skillNode->skill.damage;
         monster.hp -= damage;  // Call the Monster's takeDamage method
-        std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n";
+        std::cout << "Dealt " << damage << " damage to " << monster.name << "!\n\n";
 
         // Log the action
         logBattleAction(name + " used " + skillName + " and dealt " + std::to_string(damage) + " damage to " + monster.name + ".");
