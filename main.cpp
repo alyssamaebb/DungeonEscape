@@ -66,7 +66,7 @@ int main()
 			player.printBattleLog(); // View battle log
 			break;
 		case 6:
-			std::cout << "Thank you for playing Escape Game!\n";
+			std::cout << "Thank you for playing Dungeon Escape Game!\n";
 			playing = false; // Exit the game
 			break;
 		default:
