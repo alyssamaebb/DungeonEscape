@@ -20,6 +20,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 			{
 				currentRoom->connect(game.room4);
 				inventory.addItem("Goblin Key");
+				std::cout << "\nYou have acquired the Goblin Key!" << std::endl;
 			}
 			else if (currentRoom->name == "Monster Lair 2")
 			{
@@ -27,6 +28,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 				currentRoom->connect(game.room2);
 				currentRoom->connect(game.room5);
 				inventory.addItem("Orc Key");
+				std::cout << "\nYou have acquired the Orc Key!" << std::endl;
 			}
         }
 		else
@@ -74,6 +76,8 @@ int main()
 			player.printBattleLog(); // View battle log
 			break;
 		case 6:
+			std::cout << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << std::endl;
+			std::cout << "==================================================\n";
 			std::cout << "Thank you for playing Dungeon Escape Game!\n";
 			playing = false; // Exit the game
 			break;
