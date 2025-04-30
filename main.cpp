@@ -4,10 +4,11 @@
 #include "UI.h"
 #include "Player.h"
 #include "Room.h"
+#include "Inventory.h"
 #include <iostream>
 
 // Helper function to handle battling
-void handleBattle(Game& game, Player& player)
+void handleBattle(Game& game, Player& player, Inventory& inventory)
 {
 	Room* currentRoom = game.currentRoom;
 	if (currentRoom && currentRoom->monster) {
@@ -18,12 +19,14 @@ void handleBattle(Game& game, Player& player)
 			if (currentRoom->name == "Monster Lair 1")
 			{
 				currentRoom->connect(game.room4);
+				inventory.addItem("Goblin Key");
 			}
 			else if (currentRoom->name == "Monster Lair 2")
 			{
 				currentRoom->connect(game.room1);
 				currentRoom->connect(game.room2);
 				currentRoom->connect(game.room5);
+				inventory.addItem("Orc Key");
 			}
         }
 		else
@@ -40,8 +43,11 @@ int main()
 {
 	Game game; // Create the game object
 	Player player; // Create the player object
+	Inventory inventory; // Create the inventory for the player
 	
 	game.displayCurrentRoom(); // Show the starting room to the player
+	inventory.addItem("Healing Amulet");
+	std::cout << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << std::endl;
 	
 	bool playing = true;
 	while (playing) {
@@ -54,10 +60,12 @@ int main()
 			game.displayCurrentRoom(); // Show the new room immediately
 			break;
 		case 2:
+			inventory.sort();
+			inventory.display();
 			//player.showInventory(); // Display the player's inventory
 			break;
 		case 3: 
-			handleBattle(game, player); // Use helper function for battling
+			handleBattle(game, player, inventory); // Use helper function for battling
            		break;
 		case 4: 
 			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
