@@ -6,6 +6,7 @@
 #include "Room.h"
 #include "Inventory.h"
 #include <iostream>
+#include <cstdlib>
 
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player, Inventory& inventory)
@@ -47,6 +48,7 @@ int main()
 	Player player; // Create the player object
 	Inventory inventory; // Create the inventory for the player
 	
+	player.unlockSkill("Fireball");
 	game.displayCurrentRoom(); // Show the starting room to the player
 	inventory.addItem("Healing Amulet");
 	std::cout << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << std::endl;
@@ -70,6 +72,7 @@ int main()
 			handleBattle(game, player, inventory); // Use helper function for battling
            		break;
 		case 4: 
+			system("cls");
 			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
 			break;
 		case 5:
