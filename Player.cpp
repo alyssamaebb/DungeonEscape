@@ -44,12 +44,12 @@ bool Player::canUseSkill(const std::string& skillName) {
 void Player::learnSkill(SkillNode* node) {
     if (!node) return;
 
-    // clear the screen
-    skillTree.displayTree();  // Display the skill tree
-    std::cout << std::endl;
 
     // Preorder traversal: visit, left, right
     if (!node->skill.isUnlocked) {
+        skillTree.displayTree();  // Display the skill tree
+        std::cout << std::endl;
+
         std::cout << "Available Skill: " << node->skill.name << "\n";
         std::cout << "  Mana Cost: " << node->skill.manaCost
             << ", Damage: " << node->skill.damage << "\n";
