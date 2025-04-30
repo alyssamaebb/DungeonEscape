@@ -67,8 +67,8 @@ void Game::createDungeon() {
     dungeonMap["Exit"] = room5;
 
     // Create and place monsters
-    Monster* goblin = new Monster("Goblin", 30, 5);
-    Monster* orc = new Monster("Orc", 50, 10);
+    Monster* goblin = new Monster("Goblin", 100, 15);
+    Monster* orc = new Monster("Orc", 200, 30);
     dungeonMap["Monster Lair 1"]->setMonster(goblin);
     dungeonMap["Monster Lair 2"]->setMonster(orc);
     
@@ -97,9 +97,6 @@ void Game::displayCurrentRoom() {
         std::cout << "Error: You are not in any room!" << std::endl;
         return;
     }
-
-    // Display the room name
-    //std::cout << "\nYou are in: " << currentRoom->name << std::endl;
 
     // Display the room description
     std::cout << "==================================================\n";
