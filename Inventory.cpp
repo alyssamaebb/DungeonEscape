@@ -85,21 +85,31 @@ void Inventory::sort() {
     } while (swapped);
 }
 
-// Search for an item using a regular expression
+// Search for items using a regular expression and display matching names
 bool Inventory::regexSearch(std::string pattern) {
     InventoryNode* current = head;
-    
+    bool found = false;
+
     try {
         std::regex re(pattern, std::regex_constants::icase);
 
+        std::cout << "\nMatching items:\n";
+
         while (current != nullptr) {
-            if (std::regex_search(current->itemName, re)) return true;
+            if (std::regex_search(current->itemName, re)) {
+                std::cout << "- " << current->itemName << "\n";
+                found = true;
+            }
             current = current->next;
+        }
+
+        if (!found) {
+            std::cout << "No items matched your search.\n";
         }
     }
     catch (const std::regex_error& e) {
-        std::cout << "Invalid search pattern. Please try again.\n";
+        std::cout << "⚠️ Invalid search pattern. Please try again.\n";
     }
 
-    return false;
+    return found;
 }
