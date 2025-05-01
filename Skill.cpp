@@ -3,6 +3,7 @@
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
+#define ANSI_GREEN        "\033[92m"
 
 Skill::Skill(std::string name, int manaCost, int damage)
     : name(name), manaCost(manaCost), damage(damage), isUnlocked(false) {
@@ -10,7 +11,7 @@ Skill::Skill(std::string name, int manaCost, int damage)
 
 void Skill::unlock() {
     isUnlocked = true;
-    std::cout << "You have unlocked the skill: " << ANSI_BLOOD_RED << name << ANSI_RESET << "!\n\n";
+    std::cout << ANSI_GREEN << "You have unlocked the skill: " << ANSI_BLOOD_RED << name << ANSI_RESET << "!\n\n";
 }
 
 void Skill::display() const {

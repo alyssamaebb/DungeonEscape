@@ -8,6 +8,10 @@
 #include <iostream>
 #include <cstdlib>
 
+#define ANSI_GREEN	"\033[92m"
+#define ANSI_RESET	"\033[0m"
+#define ANSI_BLUE	"\033[94m"
+
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player, Inventory& inventory)
 {
@@ -23,7 +27,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 				game.room4->connect(game.room1);
 				game.room4->connect(game.room2);
 				inventory.addItem("Goblin Key");
-				std::cout << "\nYou have acquired the Goblin Key!" << std::endl;
+				std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
 			}
 			else if (currentRoom->name == "Monster Lair 2")
 			{
@@ -31,7 +35,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 				currentRoom->connect(game.room2);
 				currentRoom->connect(game.room5);
 				inventory.addItem("Orc Key");
-				std::cout << "\nYou have acquired the Orc Key!" << std::endl;
+				std::cout << ANSI_GREEN << "\nYou have acquired the Orc Key!" << ANSI_RESET << std::endl;
 			}
         }
 		else
@@ -49,11 +53,12 @@ int main()
 	Game game; // Create the game object
 	Player player; // Create the player object
 	Inventory inventory; // Create the inventory for the player
-	
-	player.unlockSkill("Fireball");
+
 	game.displayCurrentRoom(); // Show the starting room to the player
+	std::cout << "\n";
+	player.unlockSkill("Fireball");
 	inventory.addItem("Healing Amulet");
-	std::cout << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << std::endl;
+	std::cout << ANSI_GREEN << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << ANSI_RESET << std::endl;
 	
 	bool playing = true;
 	while (playing) {
@@ -80,7 +85,7 @@ int main()
 			player.printBattleLog(); // View battle log
 			break;
 		case 6:
-			std::cout << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << std::endl;
+			std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
 			std::cout << "==================================================\n";
 			std::cout << "Thank you for playing Dungeon Escape Game!\n";
 			playing = false; // Exit the game
