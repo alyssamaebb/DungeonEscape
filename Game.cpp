@@ -19,7 +19,7 @@ void waitForEnter(const std::string& line) {
 }
 
 // Constructor: Set up game intro and create the dungeon
-Game::Game(Player player) : player(player) {
+Game::Game(Player& player) : player(player) {
 	// Display game title
 	std::cout << "=============================\n";
 	std::cout << "  DUNGEON ESCAPE GAME\n";
