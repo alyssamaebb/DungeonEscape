@@ -8,9 +8,9 @@
 #include <iostream>
 #include <cstdlib>
 
-#define ANSI_GREEN	"\e[0;32m"
+#define ANSI_GREEN	"\033[92m"
 #define ANSI_RESET	"\033[0m"
-#define ANSI_BLUE	"\e[1;34m"
+#define ANSI_BLUE	"\033[94m"
 
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player, Inventory& inventory)
