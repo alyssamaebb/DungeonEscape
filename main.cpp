@@ -47,9 +47,10 @@ int main()
 	Game game; // Create the game object
 	Player player; // Create the player object
 	Inventory inventory; // Create the inventory for the player
-	
-	player.unlockSkill("Fireball");
+
 	game.displayCurrentRoom(); // Show the starting room to the player
+	player.unlockSkill("Fireball");
+	std::cout << "\n";
 	inventory.addItem("Healing Amulet");
 	std::cout << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << std::endl;
 	
