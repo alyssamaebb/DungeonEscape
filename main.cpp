@@ -63,7 +63,8 @@ int main()
 
 	game.displayCurrentRoom(); // Show the starting room to the player
 	std::cout << "\n";
-	
+
+	game.player.getSkillTree().buildTree();
 	game.player.unlockSkill("Fireball");
 	
 	inventory.addItem("Healing Amulet");
