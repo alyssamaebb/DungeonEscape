@@ -50,8 +50,15 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 
 int main()
 {
-	Game game; // Create the game object
-	Player player; // Create the player object
+	UI ui;
+
+    	// Ask for player's name first
+    	std::string playerName = ui.askPlayerName();
+
+    	// Create player object with that name
+    	Player player(playerName);
+	
+	Game game(player); // Create the game object
 	Inventory inventory; // Create the inventory for the player
 
 	game.displayCurrentRoom(); // Show the starting room to the player
