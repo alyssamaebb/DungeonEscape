@@ -63,7 +63,9 @@ int main()
 
 	game.displayCurrentRoom(); // Show the starting room to the player
 	std::cout << "\n";
-	player.unlockSkill("Fireball");
+	
+	game.player.unlockSkill("Fireball");
+	
 	inventory.addItem("Healing Amulet");
 	std::cout << ANSI_GREEN << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << ANSI_RESET << std::endl;
 	
