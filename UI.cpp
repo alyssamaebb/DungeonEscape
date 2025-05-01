@@ -1,12 +1,26 @@
 // Created by Alyssa
 
-#include <iostream>
 #include "UI.h"
+#include <iostream>
+#include <string>
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
 #define ANSI_BRIGHT_WHITE "\033[97m"
 #define ANSI_WARNING_YELL "\033[93m"
+
+std::string UI::askPlayerName() {
+    std::string name;
+    std::cout << "\n\033[93mBefore your journey begins...\n";
+    std::cout << "What is your name, brave adventurer?\n> \033[0m";
+    std::getline(std::cin, name);
+
+    if (name.empty()) {
+        name = "Unnamed Hero";  // Fallback default
+    }
+
+    return name;
+}
 
 // Display the main menu options for the player
 void UI::displayMainMenu() {

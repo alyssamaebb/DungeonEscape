@@ -50,13 +50,22 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 
 int main()
 {
-	Game game;
-	Player player;
-	Inventory inventory;
+	UI ui;
+
+    	// Ask for player's name first
+    	std::string playerName = ui.askPlayerName();
+
+    	// Create player object with that name
+    	Player player(playerName);
+	
+	Game game(player); // Create the game object
+	Inventory inventory; // Create the inventory for the player
 
 	game.displayCurrentRoom(); // Show the starting room to the player
 	std::cout << "\n";
-	player.unlockSkill("Fireball");
+
+	game.player.unlockSkill("Fireball");
+	
 	inventory.addItem("Healing Amulet");
 	std::cout << ANSI_GREEN << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << ANSI_RESET << std::endl;
 	

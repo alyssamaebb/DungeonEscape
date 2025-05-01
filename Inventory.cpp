@@ -2,6 +2,9 @@
 #include <iostream>
 #include <regex>
 
+#define ANSI_WARNING_YELL    "\033[93m"
+#define ANSI_RESET           "\033[0m"
+
 // InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
     itemName = name;
@@ -55,7 +58,9 @@ bool Inventory::removeItem(std::string name) {
 // Display all items in the inventory
 void Inventory::display() {
     InventoryNode* current = head;
-    std::cout << "\nYour Inventory:\n";
+    std::cout << "\n" << "====================================\n";
+    std::cout << ANSI_WARNING_YELL << "         Your Inventory\n" << ANSI_RESET;
+    std::cout << "====================================" << "\n";
     while (current != nullptr) {
         std::cout << "- " << current->itemName << "\n";
         current = current->next;
