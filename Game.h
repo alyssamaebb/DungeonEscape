@@ -14,9 +14,9 @@ class Room;
 class Game {
 private:
     std::map<std::string, Room*> dungeonMap; // Dungeon represented as a map of rooms
-    Player player;
     //Room* currentRoom; // Current room where the player is located
 public:
+    Player player;
     Room* currentRoom; // Current room where the player is located
     Room* room1;
     Room* room2;
