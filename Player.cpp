@@ -166,8 +166,9 @@ bool Player::battle(Monster* monster) {
         if (monster->hp <= 0) {
             std::cout << monster->name << " has been defeated!\n";
             logBattleAction(monster->name + " was defeated!");
-	    std::cout << "Your HP was replenished with Healing Amulet!\n";
+	    std::cout << "Your stats were replenished by Healing Amulet!\n";
 	    hp = 100;
+	    mana = 100;
             return true;
         }
 
