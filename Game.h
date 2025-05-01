@@ -16,13 +16,13 @@ private:
     std::map<std::string, Room*> dungeonMap; // Dungeon represented as a map of rooms
     //Room* currentRoom; // Current room where the player is located
 public:
-    Player player;
     Room* currentRoom; // Current room where the player is located
     Room* room1;
     Room* room2;
     Room* room3;
     Room* room4;
     Room* room5;
+    Player player;
 
     Game(Player player);
     ~Game();
