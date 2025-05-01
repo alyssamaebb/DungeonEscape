@@ -3,7 +3,7 @@
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
-#define ANSI_GREEN        "\e[0;32m"
+#define ANSI_GREEN        "\033[92m"
 
 Skill::Skill(std::string name, int manaCost, int damage)
     : name(name), manaCost(manaCost), damage(damage), isUnlocked(false) {
