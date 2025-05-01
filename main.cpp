@@ -48,17 +48,6 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
     }
 }
 
-// Helper function to search inventory using regex
-void searchInventory(Inventory& inventory)
-{
-    std::cin.ignore();
-    std::string pattern;
-    std::cout << "\nEnter a keyword or pattern to search for items: ";
-    std::getline(std::cin, pattern);
-
-    inventory.regexSearch(pattern); // No need to check true/false anymore
-}
-
 int main()
 {
 	UI ui;
@@ -95,7 +84,7 @@ int main()
 			inventory.display();
 			break;
 		case 3: 
-			searchInventory(inventory);
+			UI::searchInventory(inventory);
 			break;
 		case 4: 
 			handleBattle(game, player, inventory);
