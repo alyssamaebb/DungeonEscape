@@ -47,11 +47,11 @@ Game::~Game() {
 // Build the dungeon map by creating and connecting rooms
 void Game::createDungeon() {
     // Create rooms
-    room1 = new Room("Entrance", "You are at the entrance of the dungeon.");
-    room2 = new Room("Inventory Room", "You are in a dusty storage room filled with old supplies.");
-    room3 = new Room("Monster Lair 1", "You are in the lair of a fearsome goblin.");
-    room4 = new Room("Monster Lair 2", "You are in the lair of a brutal orc.");
-    room5 = new Room("Exit", "You have reached the final door out of the dungeon.");
+    room1 = new Room("Entrance", "You are at the entrance of the dungeon.\n");
+    room2 = new Room("Inventory Room", "You are in a dusty storage room filled with old supplies.\n");
+    room3 = new Room("Monster Lair 1", "You are in the lair of a fearsome goblin.\n");
+    room4 = new Room("Monster Lair 2", "You are in the lair of a brutal orc.\n");
+    room5 = new Room("Exit", "You have reached the final door out of the dungeon.\n");
     
     // Connect rooms
     room1->connect(room2);
