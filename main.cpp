@@ -20,6 +20,8 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 			if (currentRoom->name == "Monster Lair 1")
 			{
 				currentRoom->connect(game.room4);
+				game.room4->connect(game.room1);
+				game.room4->connect(game.room2);
 				inventory.addItem("Goblin Key");
 				std::cout << "\nYou have acquired the Goblin Key!" << std::endl;
 			}
