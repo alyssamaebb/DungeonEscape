@@ -102,16 +102,16 @@ int main()
 			inventory.display();
 			break;
 		case 3: 
+			searchInventory(inventory);
+			break;
+		case 4: 
 			handleBattle(game, player, inventory);
            	break;
-		case 4: 
+		case 5:
 			player.learnSkill(player.getSkillTree().getRoot());
 			break;
-		case 5:
-			player.printBattleLog();
-			break;
 		case 6:
-			searchInventory(inventory);
+			player.printBattleLog();
 			break;
 		case 7:
 			if (game.room4->monster == nullptr)
