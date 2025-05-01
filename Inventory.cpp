@@ -85,16 +85,6 @@ void Inventory::sort() {
     } while (swapped);
 }
 
-// Search for an item by name
-bool Inventory::search(std::string name) {
-    InventoryNode* current = head;
-    while (current != nullptr) {
-        if (current->itemName == name) return true;
-        current = current->next;
-    }
-    return false;
-}
-
 // Search for an item using a regular expression
 bool Inventory::regexSearch(std::string pattern) {
     InventoryNode* current = head;
