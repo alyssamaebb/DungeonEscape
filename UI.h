@@ -3,6 +3,8 @@
 #ifndef UI_H
 #define UI_H
 
+#include <string>
+
 // Handles user interface display and input gathering
 class UI {
 public:
