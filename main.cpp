@@ -56,7 +56,7 @@ void searchInventory(Inventory& inventory)
 	std::cout << "\nEnter a keyword or pattern to search for items: ";
 	std::getline(std::cin, pattern);
 
-	std::string regexPattern = "(?i)" + pattern; // (?i) makes the search case-insensitive
+	std::regex re(pattern, std::regex_constants::icase);
 
 	if (inventory.regexSearch(regexPattern)) {
 		std::cout << "Found an item matching '" << pattern << "'!\n";
