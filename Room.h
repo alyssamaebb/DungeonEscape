@@ -15,8 +15,8 @@ public:
 
     Room(std::string n, std::string desc);
     void connect(Room* other);
-    void setMonster(Monster* m); // Set monster in the room
-    void removeMonster(); // Remove monster from the room
+    void setMonster(Monster* m);
+    void removeMonster();
 };
 
 #endif
