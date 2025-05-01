@@ -6,6 +6,7 @@
 #include <map>
 #include <string>
 #include "Room.h"
+#include "Player.h"
 
 class Room;
 
@@ -13,6 +14,7 @@ class Room;
 class Game {
 private:
     std::map<std::string, Room*> dungeonMap; // Dungeon represented as a map of rooms
+    Player player;
     //Room* currentRoom; // Current room where the player is located
 public:
     Room* currentRoom; // Current room where the player is located
@@ -21,8 +23,10 @@ public:
     Room* room3;
     Room* room4;
     Room* room5;
-    Game();
+
+    Game(Player player);
     ~Game();
+
     void movePlayer(); // Move to a neighboring room
     void createDungeon(); // Build the dungeon map
     Room* findRoom(const std::string& roomName); // Find a room by its name
