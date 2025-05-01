@@ -51,14 +51,12 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 // Helper function to search inventory using regex
 void searchInventory(Inventory& inventory)
 {
-	std::cin.ignore(); // Clear leftover input
+	std::cin.ignore();
 	std::string pattern;
 	std::cout << "\nEnter a keyword or pattern to search for items: ";
 	std::getline(std::cin, pattern);
 
-	std::regex re(pattern, std::regex_constants::icase);
-
-	if (inventory.regexSearch(regexPattern)) {
+	if (inventory.regexSearch(pattern)) { // <-- just send pattern, no (?i)
 		std::cout << "Found an item matching '" << pattern << "'!\n";
 	}
 	else {
