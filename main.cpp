@@ -50,9 +50,9 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 
 int main()
 {
-	Game game; // Create the game object
-	Player player; // Create the player object
-	Inventory inventory; // Create the inventory for the player
+	Game game;
+	Player player;
+	Inventory inventory;
 
 	game.displayCurrentRoom(); // Show the starting room to the player
 	std::cout << "\n";
@@ -63,29 +63,34 @@ int main()
 	bool playing = true;
 	while (playing) {
 		UI::displayMainMenu(); // Display the main menu
-		int choice = UI::getMenuChoice(); // Get the user's menu choice
+		int choice = UI::getMenuChoice();
 
 		switch (choice) {
 		case 1:
-			game.movePlayer(); // Move to another room
-			game.displayCurrentRoom(); // Show the new room immediately
+			game.movePlayer();
+			game.displayCurrentRoom();
 			break;
 		case 2:
 			inventory.sort();
 			inventory.display();
-			//player.showInventory(); // Display the player's inventory
 			break;
 		case 3: 
-			handleBattle(game, player, inventory); // Use helper function for battling
-           		break;
+			handleBattle(game, player, inventory);
+           	break;
 		case 4: 
-			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
+			player.learnSkill(player.getSkillTree().getRoot());
 			break;
 		case 5:
-			player.printBattleLog(); // View battle log
+			player.printBattleLog();
 			break;
 		case 6:
-			std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
+			if (game.room4->monster == nullptr)
+			{
+				std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
+				std::cout << "==================================================\n";
+				std::cout << "Thank you for playing Dungeon Escape Game!\n";
+				playing = false; // Exit the game
+			}
 			std::cout << "==================================================\n";
 			std::cout << "Thank you for playing Dungeon Escape Game!\n";
 			playing = false; // Exit the game

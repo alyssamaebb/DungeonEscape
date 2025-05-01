@@ -145,7 +145,7 @@ void Game::movePlayer() {
     std::cin >> choice;
 
     // Validate the choice
-    if (choice < 1 || choice > static_cast<int>(currentRoom->neighbors.size()+5)) {
+    if (choice < 1 || choice >= static_cast<int>(currentRoom->neighbors.size()+1)) {
         std::cout << "Invalid choice. Please try again." << std::endl;
         return;
     }

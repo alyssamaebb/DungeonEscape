@@ -179,6 +179,16 @@ bool Player::battle(Monster* monster) {
         if (hp <= 0) {
             std::cout << name << " has been defeated!\n";
             logBattleAction(name + " was defeated!");
+            hp = 100;
+            mana = 100;
+            if (monster->name == "Goblin")
+            {
+                monster->hp = 100;
+            }
+            else if (monster->name == "Orc")
+            {
+                monster->hp = 200;
+            }
             return false;
         }
     }
