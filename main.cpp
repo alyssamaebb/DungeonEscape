@@ -35,7 +35,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 				currentRoom->connect(game.room2);
 				currentRoom->connect(game.room5);
 				inventory.addItem("Orc Key");
-				std::cout << ANSI_GREEN << "\nYou have acquired the Orc Key!" << ANSI_RESET << std::endl;
+				std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
 			}
         }
 		else
@@ -93,7 +93,7 @@ int main()
 			player.printBattleLog();
 			break;
 		case 6:
-			if (game.room4->monster == nullptr)
+			if (game.currentRoom == game.room5)
 			{
 				std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
 				playing = false; // Exit the game
