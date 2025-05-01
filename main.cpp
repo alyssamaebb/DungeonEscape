@@ -8,6 +8,10 @@
 #include <iostream>
 #include <cstdlib>
 
+#define ANSI_GREEN	"\e[0;32m"
+#define ANSI_RESET	"\e[0m"
+#define ANSI_BLUE	"\e[1;34m"
+
 // Helper function to handle battling
 void handleBattle(Game& game, Player& player, Inventory& inventory)
 {
@@ -21,7 +25,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 			{
 				currentRoom->connect(game.room4);
 				inventory.addItem("Goblin Key");
-				std::cout << "\nYou have acquired the Goblin Key!" << std::endl;
+				std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
 			}
 			else if (currentRoom->name == "Monster Lair 2")
 			{
@@ -29,7 +33,7 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
 				currentRoom->connect(game.room2);
 				currentRoom->connect(game.room5);
 				inventory.addItem("Orc Key");
-				std::cout << "\nYou have acquired the Orc Key!" << std::endl;
+				std::cout << ANSI_GREEN << "\nYou have acquired the Orc Key!" << ANSI_RESET << std::endl;
 			}
         }
 		else
@@ -52,7 +56,7 @@ int main()
 	std::cout << "\n";
 	player.unlockSkill("Fireball");
 	inventory.addItem("Healing Amulet");
-	std::cout << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << std::endl;
+	std::cout << ANSI_GREEN << "\nYou have acquired a Healing Amulet!\nMay it bring you luck on your journey..." << ANSI_RESET << std::endl;
 	
 	bool playing = true;
 	while (playing) {
@@ -79,7 +83,7 @@ int main()
 			player.printBattleLog(); // View battle log
 			break;
 		case 6:
-			std::cout << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << std::endl;
+			std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
 			std::cout << "==================================================\n";
 			std::cout << "Thank you for playing Dungeon Escape Game!\n";
 			playing = false; // Exit the game
