@@ -48,6 +48,24 @@ void handleBattle(Game& game, Player& player, Inventory& inventory)
     }
 }
 
+// Helper function to search inventory using regex
+void searchInventory(Inventory& inventory)
+{
+	std::cin.ignore(); // Clear leftover input
+	std::string pattern;
+	std::cout << "\nEnter a keyword or pattern to search for items: ";
+	std::getline(std::cin, pattern);
+
+	std::string regexPattern = "(?i)" + pattern; // (?i) makes the search case-insensitive
+
+	if (inventory.regexSearch(regexPattern)) {
+		std::cout << "Found an item matching '" << pattern << "'!\n";
+	}
+	else {
+		std::cout << "No items matched '" << pattern << "'.\n";
+	}
+}
+
 int main()
 {
 	UI ui;
@@ -93,6 +111,9 @@ int main()
 			player.printBattleLog();
 			break;
 		case 6:
+			searchInventory(inventory);
+			break;
+		case 7:
 			if (game.room4->monster == nullptr)
 			{
 				std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
