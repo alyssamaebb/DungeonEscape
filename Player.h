@@ -9,7 +9,6 @@
 
 class Player {
 private:
-    std::string name;
     int hp;
     int mana;
     int level;
@@ -18,6 +17,8 @@ private:
     std::stack<std::string> battleLog; // History of battle actions
 
 public:
+    std::string name;
+
     // Default constructor
     Player();
 
