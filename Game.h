@@ -24,7 +24,7 @@ public:
     Room* room5;
     Player player;
 
-    Game(Player player);
+    Game(Player& player);
     ~Game();
 
     void movePlayer(); // Move to a neighboring room
