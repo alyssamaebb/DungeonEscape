@@ -22,7 +22,7 @@ public:
     Room* room3;
     Room* room4;
     Room* room5;
-    Player player;
+    Player& player;
 
     Game(Player& player);
     ~Game();
