@@ -72,7 +72,6 @@ int main()
 			handleBattle(game, player, inventory); // Use helper function for battling
            		break;
 		case 4: 
-			system("cls");
 			player.learnSkill(player.getSkillTree().getRoot()); // Learn a new skill
 			break;
 		case 5:
