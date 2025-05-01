@@ -32,6 +32,7 @@ public:
     Room* findRoom(const std::string& roomName); // Find a room by its name
     void displayCurrentRoom(); // Display the current room's details
     void endGame();
+    void searchInventory();
 };
 
 #endif // GAME_H
