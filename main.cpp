@@ -9,7 +9,7 @@
 #include <cstdlib>
 
 #define ANSI_GREEN	"\e[0;32m"
-#define ANSI_RESET	"\e[0m"
+#define ANSI_RESET	"\033[0m"
 #define ANSI_BLUE	"\e[1;34m"
 
 // Helper function to handle battling
