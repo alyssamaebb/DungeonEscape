@@ -10,7 +10,6 @@
 
 #define ANSI_GREEN	"\033[92m"
 #define ANSI_RESET	"\033[0m"
-#define ANSI_BLUE	"\033[94m"
 
 int main()
 {
