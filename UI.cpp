@@ -3,6 +3,9 @@
 #include "UI.h"
 #include "AnsiColors.h"
 
+#include <iostream>
+#include <regex>
+
 std::string UI::askPlayerName() {
     std::string name;
     std::cout << "\n\033[93mBefore your journey begins...\n";
