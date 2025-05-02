@@ -12,42 +12,6 @@
 #define ANSI_RESET	"\033[0m"
 #define ANSI_BLUE	"\033[94m"
 
-// Helper function to handle battling
-void handleBattle(Game& game, Player& player, Inventory& inventory)
-{
-	Room* currentRoom = game.currentRoom;
-	if (currentRoom && currentRoom->monster) {
-        bool monsterDefeated = player.battle(currentRoom->monster);
-        if (monsterDefeated) {
-            delete currentRoom->monster;
-            currentRoom->monster = nullptr;
-			if (currentRoom->name == "Monster Lair 1")
-			{
-				currentRoom->connect(game.room4);
-				game.room4->connect(game.room1);
-				game.room4->connect(game.room2);
-				inventory.addItem("Goblin Key");
-				std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
-			}
-			else if (currentRoom->name == "Monster Lair 2")
-			{
-				currentRoom->connect(game.room1);
-				currentRoom->connect(game.room2);
-				currentRoom->connect(game.room5);
-				inventory.addItem("Orc Key");
-				std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
-			}
-        }
-		else
-		{
-			game.endGame();
-		}
-    }
-    else {
-        std::cout << "There is no monster to battle in this room.\n";
-    }
-}
-
 int main()
 {
 	UI ui;
@@ -87,7 +51,7 @@ int main()
 			UI::searchInventory(inventory);
 			break;
 		case 4: 
-			handleBattle(game, player, inventory);
+			game.handleBattle(inventory);
            	break;
 		case 5:
 			player.learnSkill(player.getSkillTree().getRoot());
