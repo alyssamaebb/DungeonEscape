@@ -63,8 +63,8 @@ void Game::createDungeon() {
     dungeonMap["Exit"] = room5;
 
     // Create and place monsters
-    Monster* goblin = new Monster("Goblin", 100, 15);
-    Monster* orc = new Monster("Orc", 200, 30);
+    Monster* goblin = new Monster("Goblin \xF0\x9F\x91\xBA", 100, 15);
+    Monster* orc = new Monster("Orc \xF0\x9F\x91\xB9", 200, 30);
     dungeonMap["Monster Lair 1"]->setMonster(goblin);
     dungeonMap["Monster Lair 2"]->setMonster(orc);
     
