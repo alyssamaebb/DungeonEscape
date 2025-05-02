@@ -1,9 +1,6 @@
 // Created by Alyssa
 
 #include "UI.h"
-#include <iostream>
-#include <string>
-#include <regex>
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
