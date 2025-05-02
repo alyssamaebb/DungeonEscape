@@ -1,6 +1,4 @@
 #include "Inventory.h"
-#include <iostream>
-#include <regex>
 
 #define ANSI_WARNING_YELL    "\033[93m"
 #define ANSI_RESET           "\033[0m"
