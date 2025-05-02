@@ -114,7 +114,7 @@ void Game::movePlayer() {
         return;
     }
 
-    std::cout << "Neighboring rooms:" << std::endl;
+    std::cout << "\xF0\x9F\x9A\xAA Neighboring rooms:\n";
     for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
         std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
     }
@@ -136,7 +136,7 @@ void Game::movePlayer() {
 }
 void Game::endGame()
 {
-    std::cout << "GAME OVER!" << std::endl;
+    std::cout << "\xF0\x9F\x92\x80 GAME OVER! \xF0\x9F\x92\x80\n"; 
 }
 
 // Helper function for main.cpp
