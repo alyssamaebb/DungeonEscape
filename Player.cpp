@@ -1,7 +1,4 @@
 #include "Player.h"
-#include "Monster.h"
-#include <iostream>
-#include <cstdlib>
 
 // default constructor
 Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
