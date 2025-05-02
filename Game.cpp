@@ -152,14 +152,14 @@ void Game::handleBattle(Inventory& inventory)
                 room4->connect(room1);
                 room4->connect(room2);
                 inventory.addItem("Goblin Key");
-                std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
+                std::cout << ANSI_GREEN << "\n\xF0\x9F\x97\x9D\xEF\xB8\x8F You have acquired the Goblin Key!" << ANSI_RESET << std::endl;  
             }
             else if (currentRoom->name == "Monster Lair 2") {
                 currentRoom->connect(room1);
                 currentRoom->connect(room2);
                 currentRoom->connect(room5);
                 inventory.addItem("Orc Key");
-                std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
+                std::cout << ANSI_GREEN << "\n\xF0\x9F\x97\x9D\xEF\xB8\x8F The Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
             }
         }
         else {
