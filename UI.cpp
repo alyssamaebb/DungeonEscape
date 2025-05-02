@@ -37,7 +37,7 @@ int UI::getMenuChoice() {
 	int choice;
 	while (check)
 	{
-		std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
+		std::cout << ANSI_WARNING_YELL "\n\xF0\x9F\x8E\xAF Enter your choice: " ANSI_RESET; // 🎯
 		std::cin >> choice;
 		if (std::cin.fail())
 		{
@@ -56,7 +56,7 @@ int UI::getMenuChoice() {
 void UI::searchInventory(Inventory& inventory) {
     std::cin.ignore();
     std::string pattern;
-    std::cout << "\nEnter a keyword or pattern to search for items: ";
+    std::cout << "\n\xF0\x9F\x94\x8D Enter a keyword or pattern to search for items: "; // 🔍
     std::getline(std::cin, pattern);
 
     inventory.regexSearch(pattern);
@@ -64,5 +64,5 @@ void UI::searchInventory(Inventory& inventory) {
 
 void UI::displayExitMessage() {
 	std::cout << "==================================================\n";
-	std::cout << "Thank you for playing Dungeon Escape Game!\n";
+	std::cout << "\xF0\x9F\x8E\x89 Thank you for playing Dungeon Escape Game!\n"; // 🎉
 }
