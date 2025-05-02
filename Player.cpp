@@ -7,11 +7,13 @@
 Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
     // Optionally, initialize the skill tree with a default structure
 	skillTree.buildTree();
+	unlockSkill("Fireball");  // Unlock the root skill by default
 }
 
 // parameterized constructor
 Player::Player(std::string name) : name(name), level(1), hp(100), mana(100) {
 	skillTree.buildTree();  // Build the skill tree when the player is created
+	unlockSkill("Fireball");  // Unlock the root skill by default
 }
 
 void Player::levelUp() {
