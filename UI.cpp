@@ -3,6 +3,7 @@
 #include "UI.h"
 #include <iostream>
 #include <string>
+#include <regex>
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"
@@ -40,4 +41,13 @@ int UI::getMenuChoice() {
 	std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
 	std::cin >> choice;
 	return choice;
+}
+
+void UI::searchInventory(Inventory& inventory) {
+    std::cin.ignore();
+    std::string pattern;
+    std::cout << "\nEnter a keyword or pattern to search for items: ";
+    std::getline(std::cin, pattern);
+
+    inventory.regexSearch(pattern);
 }

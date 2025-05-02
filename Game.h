@@ -31,6 +31,7 @@ public:
     void createDungeon(); // Build the dungeon map
     void displayCurrentRoom(); // Display the current room's details
     void endGame();
+    void handleBattle(Inventory& inventory);
 };
 
 #endif // GAME_H
