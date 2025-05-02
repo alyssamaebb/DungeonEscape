@@ -31,28 +31,6 @@ void Inventory::addItem(std::string name) {
     head = newNode;
 }
 
-// Remove an item by name
-bool Inventory::removeItem(std::string name) {
-    InventoryNode* current = head;
-    InventoryNode* previous = nullptr;
-
-    while (current != nullptr) {
-        if (current->itemName == name) {
-            if (previous == nullptr) {
-                head = current->next;
-            }
-            else {
-                previous->next = current->next;
-            }
-            delete current;
-            return true;
-        }
-        previous = current;
-        current = current->next;
-    }
-    return false;
-}
-
 // Display all items in the inventory
 void Inventory::display() {
     InventoryNode* current = head;
