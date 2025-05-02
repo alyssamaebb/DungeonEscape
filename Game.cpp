@@ -8,6 +8,7 @@
 #define ANSI_WARNING_YELL "\033[93m"
 #define ANSI_GREY "\x1b[90m"
 #define ANSI_GREEN	"\033[92m"
+#define ANSI_BLUE	"\033[94m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
