@@ -7,5 +7,6 @@
 #define ANSI_GREY "\x1b[90m"
 #define ANSI_GREEN	"\033[92m"
 #define ANSI_BLUE	"\033[94m"
+#define ANSI_BRIGHT_WHITE "\033[97m"
 
 #endif / / ANSI_COLORS_H
