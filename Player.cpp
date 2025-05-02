@@ -52,6 +52,13 @@ bool Player::learnSkill(SkillNode* node) {
         skillTree.displayTree();  // Display the skill tree
         std::cout << std::endl;
 
+        // Check if the parent skill is unlocked (if not the root)
+        if (node != skillTree.getRoot() && !skillTree.isParentUnlocked(skillTree.getRoot(), node->skill.name)) {
+            std::cout << "You must unlock the prerequisite skill first.\n";
+            return false; // Stop if the parent skill is not unlocked
+        }
+
+        // Display skill details and prompt the player to unlock
         std::cout << "Available Skill: " << node->skill.name << "\n";
         std::cout << "  Mana Cost: " << node->skill.manaCost
             << ", Damage: " << node->skill.damage << "\n";
@@ -59,16 +66,16 @@ bool Player::learnSkill(SkillNode* node) {
         char choice;
         std::cin >> choice;
         std::cout << std::endl;
+
         if (choice == 'y' || choice == 'Y') {
-            if (skillTree.isSkillUnlocked(node->skill.name)) {
-                std::cout << "Already unlocked.\n";
-            }
-            else {
-                skillTree.unlockSkill(node->skill.name);
-                learnedSkills.push_back(node->skill.name);
-                std::cout << "Skill unlocked: " << node->skill.name << "\n\n";
-                return true; // Stop further traversal after unlocking a skill
-            }
+            // Unlock the skill
+            skillTree.unlockSkill(node->skill.name);
+            learnedSkills.push_back(node->skill.name);
+            std::cout << "Skill unlocked: " << node->skill.name << "\n\n";
+            return true; // Stop further traversal after unlocking a skill
+        }
+        else {
+            std::cout << "Skill not unlocked.\n";
         }
     }
 
@@ -78,6 +85,7 @@ bool Player::learnSkill(SkillNode* node) {
 
     return false; // No skill was unlocked in this branch
 }
+
 
 
 void Player::printBattleLog() {
