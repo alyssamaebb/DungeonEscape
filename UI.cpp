@@ -3,6 +3,9 @@
 #include "UI.h"
 #include "AnsiColors.h"
 
+#include <iostream>
+#include <regex>
+
 std::string UI::askPlayerName() {
     std::string name;
     std::cout << "\n\033[93mBefore your journey begins...\n";
@@ -30,9 +33,23 @@ void UI::displayMainMenu() {
 
 // Get the player's menu choice
 int UI::getMenuChoice() {
+	bool check = true;
 	int choice;
-	std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
-	std::cin >> choice;
+	while (check)
+	{
+		std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
+		std::cin >> choice;
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid choice. Please try again.\n";
+		}
+		else
+		{
+			break;
+		}
+	}
 	return choice;
 }
 
