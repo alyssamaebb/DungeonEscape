@@ -4,9 +4,6 @@
 #define UI_H
 
 #include "Inventory.h"
-#include <iostream>
-#include <string>
-#include <regex>
 #include <string>
 
 // Handles user interface display and input gathering
