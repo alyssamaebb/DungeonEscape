@@ -18,6 +18,7 @@ void SkillTree::deleteTree(SkillNode* node) {
 void SkillTree::buildTree() {
     // Root skill
     root = new SkillNode(Skill("Fireball\xF0\x9F\x94\xA5", 10, 25));
+	unlockSkill(root->skill.name); // Unlock the root skill
 
     // Left subtree
     root->left = new SkillNode(Skill("Flame Burst\xF0\x9F\x92\xA5", 15, 35));
