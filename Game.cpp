@@ -158,3 +158,35 @@ void Game::endGame()
 {
     std::cout << "GAME OVER!" << std::endl;
 }
+
+// Helper function for main.cpp
+void Game::handleBattle(Inventory& inventory)
+{
+    if (currentRoom && currentRoom->monster) {
+        bool monsterDefeated = player.battle(currentRoom->monster);
+        if (monsterDefeated) {
+            delete currentRoom->monster;
+            currentRoom->monster = nullptr;
+            if (currentRoom->name == "Monster Lair 1") {
+                currentRoom->connect(room4);
+                room4->connect(room1);
+                room4->connect(room2);
+                inventory.addItem("Goblin Key");
+                std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
+            }
+            else if (currentRoom->name == "Monster Lair 2") {
+                currentRoom->connect(room1);
+                currentRoom->connect(room2);
+                currentRoom->connect(room5);
+                inventory.addItem("Orc Key");
+                std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
+            }
+        }
+        else {
+            endGame();
+        }
+    }
+    else {
+        std::cout << "There is no monster to battle in this room.\n";
+    }
+}
