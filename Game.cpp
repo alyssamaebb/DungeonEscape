@@ -115,6 +115,7 @@ void Game::movePlayer() {
     }
 
     std::cout << "\xF0\x9F\x9A\xAA Neighboring rooms:\n";
+    std::cout << "==================================================\n";
     for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
         std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
     }
