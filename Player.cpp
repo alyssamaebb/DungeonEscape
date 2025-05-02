@@ -7,13 +7,12 @@
 Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
     // Optionally, initialize the skill tree with a default structure
 	skillTree.buildTree();
-	unlockSkill("Fireball");  // Unlock the root skill by default
+
 }
 
 // parameterized constructor
 Player::Player(std::string name) : name(name), level(1), hp(100), mana(100) {
 	skillTree.buildTree();  // Build the skill tree when the player is created
-	unlockSkill("Fireball");  // Unlock the root skill by default
 }
 
 void Player::levelUp() {
@@ -24,8 +23,7 @@ void Player::levelUp() {
 
 void Player::unlockSkill(const std::string& skillName) {
 	skillTree.unlockSkill(skillName);
-    if (skillTree.isParentUnlocked(skillTree.getRoot(), skillName))
-        learnedSkills.push_back(skillName);
+    learnedSkills.push_back(skillName);
 }
 
 void Player::displayStats() {
@@ -42,7 +40,6 @@ void Player::setSkillTree(SkillTree& tree) {
 bool Player::canUseSkill(const std::string& skillName) {
     return skillTree.isSkillUnlocked(skillName);
 }
-
 
 bool Player::learnSkill(SkillNode* node) {
     if (!node) return false; // Base case: null node
@@ -87,8 +84,6 @@ bool Player::learnSkill(SkillNode* node) {
 
     return false; // No skill was unlocked in this branch
 }
-
-
 
 void Player::printBattleLog() {
     std::cout << "=== Battle Log ===\n";
@@ -153,10 +148,13 @@ bool Player::battle(Monster* monster) {
         std::cout << "\n=== " << name << "'s Turn ===\n";
         std::cout << "HP: " << hp << ", Mana: " << mana << "\n";
 
-        // Display available skills with numbers
+        // Display available skills with numbers and emojis
         std::cout << "Available Skills:\n";
         for (size_t i = 0; i < learnedSkills.size(); ++i) {
-            std::cout << i + 1 << ". " << learnedSkills[i] << "\n";
+            SkillNode* skillNode = skillTree.find(skillTree.getRoot(), learnedSkills[i]);
+            if (skillNode) {
+                std::cout << i + 1 << ". " << skillNode->skill.icon << " " << skillNode->skill.name << "\n";
+            }
         }
 
         // Player chooses a skill by number
@@ -183,9 +181,9 @@ bool Player::battle(Monster* monster) {
         if (monster->hp <= 0) {
             std::cout << monster->name << " has been defeated!\n";
             logBattleAction(monster->name + " was defeated!");
-	    std::cout << "Your stats were replenished by Healing Amulet!\n";
-	    hp = 100;
-	    mana = 100;
+            std::cout << "Your stats were replenished by Healing Amulet!\n";
+            hp = 100;
+            mana = 100;
             return true;
         }
 
@@ -201,12 +199,10 @@ bool Player::battle(Monster* monster) {
             logBattleAction(name + " was defeated!");
             hp = 100;
             mana = 100;
-            if (monster->name == "Goblin")
-            {
+            if (monster->name == "Goblin") {
                 monster->hp = 100;
             }
-            else if (monster->name == "Orc")
-            {
+            else if (monster->name == "Orc") {
                 monster->hp = 200;
             }
             return false;
