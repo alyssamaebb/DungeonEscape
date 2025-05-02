@@ -1,11 +1,7 @@
 // Created by Alyssa
 
 #include "UI.h"
-
-#define ANSI_RESET        "\033[0m"
-#define ANSI_BLOOD_RED    "\033[91m"
-#define ANSI_BRIGHT_WHITE "\033[97m"
-#define ANSI_WARNING_YELL "\033[93m"
+#include "AnsiColors.h"
 
 std::string UI::askPlayerName() {
     std::string name;
@@ -47,4 +43,9 @@ void UI::searchInventory(Inventory& inventory) {
     std::getline(std::cin, pattern);
 
     inventory.regexSearch(pattern);
+}
+
+void UI::displayExitMessage() {
+	std::cout << "==================================================\n";
+	std::cout << "Thank you for playing Dungeon Escape Game!\n";
 }

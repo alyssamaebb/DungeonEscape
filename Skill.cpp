@@ -1,8 +1,5 @@
 #include "Skill.h"
-
-#define ANSI_RESET        "\033[0m"
-#define ANSI_BLOOD_RED    "\033[91m"
-#define ANSI_GREEN        "\033[92m"
+#include "AnsiColors.h"
 
 Skill::Skill(std::string name, int manaCost, int damage)
     : name(name), manaCost(manaCost), damage(damage), isUnlocked(false) {

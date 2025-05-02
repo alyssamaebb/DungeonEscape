@@ -1,7 +1,5 @@
 #include "Inventory.h"
-
-#define ANSI_WARNING_YELL    "\033[93m"
-#define ANSI_RESET           "\033[0m"
+#include "AnsiColors.h"
 
 // InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
