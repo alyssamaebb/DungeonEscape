@@ -17,7 +17,7 @@ void SkillTree::deleteTree(SkillNode* node) {
 
 void SkillTree::buildTree() {
     // Example tree (hardcoded for now)
-    root = new SkillNode(Skill("Fireball \xF0\x9F\x94\xA5", 10, 25));
+    root = new SkillNode(Skill("Fireball", 10, 25));
     root->left = new SkillNode(Skill("Flame Burst", 15, 35));
     root->right = new SkillNode(Skill("Inferno", 20, 50));
     root->left->left = new SkillNode(Skill("Ember Nova", 25, 70));
