@@ -7,6 +7,7 @@
 #include "Inventory.h"
 #include <iostream>
 #include <cstdlib>
+#include <windows.h>
 
 #define ANSI_GREEN	"\033[92m"
 #define ANSI_RESET	"\033[0m"
@@ -14,6 +15,7 @@
 
 int main()
 {
+	SetConsoleOutputCP(CP_UTF8); // Ensures correct character encoding
 	UI ui;
 
     	// Ask for player's name first
