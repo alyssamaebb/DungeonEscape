@@ -7,6 +7,8 @@
 #include <string>
 #include "Room.h"
 #include "Player.h"
+#include "Monster.h"
+#include "Inventory.h"
 
 class Room;
 
