@@ -103,7 +103,6 @@ bool Inventory::regexSearch(std::string pattern) {
         if (!found) {
             std::cout << "No items matched your search.\n";
         }
-    }
 
     return found;
 }
