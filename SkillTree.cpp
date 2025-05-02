@@ -1,5 +1,4 @@
 #include "SkillTree.h"
-#include <iostream>
 
 SkillNode::SkillNode(Skill skill) : skill(skill), left(nullptr), right(nullptr) {}
 

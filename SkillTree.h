@@ -2,6 +2,7 @@
 #define SKILLTREE_H
 
 #include "Skill.h"
+#include <iostream>
 
 class SkillNode {
 public:
