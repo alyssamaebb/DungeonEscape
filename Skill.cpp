@@ -1,5 +1,4 @@
 #include "Skill.h"
-#include <iostream>
 
 #define ANSI_RESET        "\033[0m"
 #define ANSI_BLOOD_RED    "\033[91m"

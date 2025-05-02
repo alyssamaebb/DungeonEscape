@@ -2,6 +2,7 @@
 #define SKILL_H
 
 #include <string>
+#include <iostream>
 
 class Skill {
 public:
