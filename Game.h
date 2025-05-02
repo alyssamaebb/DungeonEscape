@@ -6,6 +6,9 @@
 #include <map>
 #include <string>
 #include "Player.h"
+#include "Room.h"
+#include "Monster.h"
+#include "Inventory.h"
 
 class Room;
 
