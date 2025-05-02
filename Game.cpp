@@ -1,7 +1,4 @@
 #include "Game.h"
-#include "Room.h"
-#include "Monster.h"
-#include "Player.h"
 
 #include <limits> // for clearing input buffer
 #include <iostream>
