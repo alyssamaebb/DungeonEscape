@@ -18,9 +18,12 @@ The game demonstrates key software engineering concepts like graphs, trees, link
 ---
 
 ## How to Run
-1. Clone or download the project.
-2. Open `DungeonEscape.sln` in Visual Studio.
-3. Build and run the project.
+1. Open Visual Studio.
+2. Select Clone a Repository.
+3. Clone this repository by copying HTTPS.
+4. Paste link into first section and select path as location of your choice.
+5. Press 'Clone'.
+7. Build and run the project.
 
 ---
 
