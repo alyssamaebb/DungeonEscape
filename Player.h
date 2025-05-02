@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "SkillTree.h"
+#include "Monster.h"
 #include <string>
 #include <vector>
 #include <stack>
