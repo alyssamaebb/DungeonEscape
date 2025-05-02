@@ -94,7 +94,6 @@ void Player::printBattleLog() {
     }
 }
 
-
 void Player::logBattleAction(const std::string& action) {
     battleLog.push(action);
 }
