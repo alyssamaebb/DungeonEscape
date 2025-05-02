@@ -76,20 +76,6 @@ void Game::createDungeon() {
     currentRoom = dungeonMap["Entrance"];
 }
 
-// Find and return a pointer to a room by its name
-Room* Game::findRoom(const std::string& roomName) {
-    // Search for the room in the dungeon map
-    auto it = dungeonMap.find(roomName);
-
-    // If the room is found, return the pointer to the room
-    if (it != dungeonMap.end()) {
-        return it->second;
-    }
-
-    // If the room is not found, return nullptr
-    return nullptr;
-}
-
 // Display the current room's name, description, monster, and neighbors
 void Game::displayCurrentRoom() {
     // Check if the current room is valid
