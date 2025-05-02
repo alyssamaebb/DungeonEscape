@@ -106,7 +106,7 @@ bool Inventory::regexSearch(std::string pattern) {
         }
     }
     catch (const std::regex_error& e) {
-        std::cout << "⚠️ Invalid search pattern. Please try again.\n";
+        std::cout << "Invalid search pattern. Please try again.\n";
     }
 
     return found;
