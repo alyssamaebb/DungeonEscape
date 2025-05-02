@@ -15,8 +15,3 @@ void Skill::display() const {
     if (!isUnlocked) std::cout << " [Locked]";
     std::cout << std::endl;
 }
-
-void Skill::printSkill()
-{
-    std::cout << name << icon;
-}
