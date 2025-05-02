@@ -18,8 +18,9 @@ void Player::levelUp() {
 }
 
 void Player::unlockSkill(const std::string& skillName) {
-    skillTree.unlockSkill(skillName);
-    learnedSkills.push_back(skillName);
+	skillTree.unlockSkill(skillName);
+    if (skillTree.isParentUnlocked(skillTree.getRoot(), skillName))
+        learnedSkills.push_back(skillName);
 }
 
 void Player::displayStats() {
@@ -38,9 +39,10 @@ bool Player::canUseSkill(const std::string& skillName) {
 }
 
 
-void Player::learnSkill(SkillNode* node) {
-    if (!node) return;
+bool Player::learnSkill(SkillNode* node) {
+    if (!node) return false; // Base case: null node
 
+    system("cls");
 
     // Preorder traversal: visit, left, right
     if (!node->skill.isUnlocked) {
@@ -54,7 +56,6 @@ void Player::learnSkill(SkillNode* node) {
         char choice;
         std::cin >> choice;
         std::cout << std::endl;
-        system("cls");
         if (choice == 'y' || choice == 'Y') {
             if (skillTree.isSkillUnlocked(node->skill.name)) {
                 std::cout << "Already unlocked.\n";
@@ -62,13 +63,19 @@ void Player::learnSkill(SkillNode* node) {
             else {
                 skillTree.unlockSkill(node->skill.name);
                 learnedSkills.push_back(node->skill.name);
+                std::cout << "Skill unlocked: " << node->skill.name << "\n\n";
+                return true; // Stop further traversal after unlocking a skill
             }
         }
     }
 
-    learnSkill(node->left);
-    learnSkill(node->right);
+    // Recursively attempt to unlock a skill in the left or right subtree
+    if (learnSkill(node->left)) return true;
+    if (learnSkill(node->right)) return true;
+
+    return false; // No skill was unlocked in this branch
 }
+
 
 void Player::printBattleLog() {
     std::cout << "=== Battle Log ===\n";

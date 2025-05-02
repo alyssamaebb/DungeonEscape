@@ -16,8 +16,8 @@ private:
     int mana;
     int level;
     SkillTree skillTree;
-    std::vector<std::string> learnedSkills; // List of unlocked skills
-    std::stack<std::string> battleLog; // History of battle actions
+    std::vector<std::string> learnedSkills;
+    std::stack<std::string> battleLog;
 
 public:
     std::string name;
@@ -34,9 +34,9 @@ public:
     void setSkillTree(SkillTree& tree);
     bool canUseSkill(const std::string& skillName);
     void useSkill(const std::string& skillName, Monster& monster);
-    SkillTree& getSkillTree(); // Getter for skill tree
+    SkillTree& getSkillTree();
 
-    void learnSkill(SkillNode* root); // note: TreeNode renamed to SkillNode
+    bool learnSkill(SkillNode* root);
     void printBattleLog();
 
     // Add helper for adding to inventory or battle log if needed
