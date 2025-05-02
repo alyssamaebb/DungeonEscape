@@ -1,8 +1,11 @@
 // TEAMATE: Kandice Estrella
 #ifndef ROOM_H
 #define ROOM_H
-#include <vector>
+
 #include "Monster.h"
+#include <vector>
+#include <string>
+
 //---------------------------------------------
 // Room (Graph Node)
 //---------------------------------------------
