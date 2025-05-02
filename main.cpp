@@ -5,11 +5,9 @@
 #include "Player.h"
 #include "Room.h"
 #include "Inventory.h"
+#include "AnsiColors.h"
 #include <iostream>
 #include <cstdlib>
-
-#define ANSI_GREEN	"\033[92m"
-#define ANSI_RESET	"\033[0m"
 
 int main()
 {
