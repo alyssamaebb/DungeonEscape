@@ -2,6 +2,8 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
+#include <iostream>
+#include <regex>
 #include <string>
 
 // Represents a single item node in the inventory linked list
@@ -25,7 +27,6 @@ public:
     bool removeItem(std::string name); // Remove an item by name
     void display(); // Display all items in inventory
     void sort(); // Sort inventory items alphabetically
-    bool search(std::string name); // Search for an item by name
     bool regexSearch(std::string pattern); // Search for an item using regex pattern
 };
 

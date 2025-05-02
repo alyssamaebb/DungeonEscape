@@ -1,15 +1,11 @@
 #include "Game.h"
-#include "Room.h"
-#include "Monster.h"
+#include "UI.h"
 #include "Player.h"
-
+#include "Room.h"
+#include "Inventory.h"
+#include "AnsiColors.h"
 #include <limits> // for clearing input buffer
 #include <iostream>
-
-#define ANSI_RESET        "\033[0m"
-#define ANSI_BLOOD_RED    "\033[91m"
-#define ANSI_WARNING_YELL "\033[93m"
-#define ANSI_GREY "\x1b[90m"
 
 // Display a line of text, then press pause until the player presses ENTER
 void waitForEnter(const std::string& line) {
@@ -19,7 +15,7 @@ void waitForEnter(const std::string& line) {
 }
 
 // Constructor: Set up game intro and create the dungeon
-Game::Game() {
+Game::Game(Player& player) : player(player) {
 	// Display game title
 	std::cout << "=============================\n";
 	std::cout << "  DUNGEON ESCAPE GAME\n";
@@ -47,11 +43,11 @@ Game::~Game() {
 // Build the dungeon map by creating and connecting rooms
 void Game::createDungeon() {
     // Create rooms
-    room1 = new Room("Entrance", "You are at the entrance of the dungeon.");
-    room2 = new Room("Inventory Room", "You are in a dusty storage room filled with old supplies.");
-    room3 = new Room("Monster Lair 1", "You are in the lair of a fearsome goblin.");
-    room4 = new Room("Monster Lair 2", "You are in the lair of a brutal orc.");
-    room5 = new Room("Exit", "You have reached the final door out of the dungeon.");
+    room1 = new Room("Entrance", "You are at the entrance of the dungeon.\n");
+    room2 = new Room("Inventory Room", "You are in a dusty storage room filled with old supplies.\n");
+    room3 = new Room("Monster Lair 1", "You are in the lair of a fearsome goblin.\n");
+    room4 = new Room("Monster Lair 2", "You are in the lair of a brutal orc.\n");
+    room5 = new Room("Exit", "You have reached the final door out of the dungeon.\n");
     
     // Connect rooms
     room1->connect(room2);
@@ -74,20 +70,6 @@ void Game::createDungeon() {
     
     // Set the starting room
     currentRoom = dungeonMap["Entrance"];
-}
-
-// Find and return a pointer to a room by its name
-Room* Game::findRoom(const std::string& roomName) {
-    // Search for the room in the dungeon map
-    auto it = dungeonMap.find(roomName);
-
-    // If the room is found, return the pointer to the room
-    if (it != dungeonMap.end()) {
-        return it->second;
-    }
-
-    // If the room is not found, return nullptr
-    return nullptr;
 }
 
 // Display the current room's name, description, monster, and neighbors
@@ -145,7 +127,7 @@ void Game::movePlayer() {
     std::cin >> choice;
 
     // Validate the choice
-    if (choice < 1 || choice > static_cast<int>(currentRoom->neighbors.size()+5)) {
+    if (choice < 1 || choice >= static_cast<int>(currentRoom->neighbors.size()+1)) {
         std::cout << "Invalid choice. Please try again." << std::endl;
         return;
     }
@@ -157,4 +139,77 @@ void Game::movePlayer() {
 void Game::endGame()
 {
     std::cout << "GAME OVER!" << std::endl;
+}
+
+// Helper function for main.cpp
+void Game::handleBattle(Inventory& inventory)
+{
+    if (currentRoom && currentRoom->monster) {
+        bool monsterDefeated = player.battle(currentRoom->monster);
+        if (monsterDefeated) {
+            delete currentRoom->monster;
+            currentRoom->monster = nullptr;
+            if (currentRoom->name == "Monster Lair 1") {
+                currentRoom->connect(room4);
+                room4->connect(room1);
+                room4->connect(room2);
+                inventory.addItem("Goblin Key");
+                std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
+            }
+            else if (currentRoom->name == "Monster Lair 2") {
+                currentRoom->connect(room1);
+                currentRoom->connect(room2);
+                currentRoom->connect(room5);
+                inventory.addItem("Orc Key");
+                std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
+            }
+        }
+        else {
+            endGame();
+        }
+    }
+    else {
+        std::cout << "There is no monster to battle in this room.\n";
+    }
+}
+
+void Game::start(Inventory& inventory)
+{
+    bool playing = true;
+    while (playing) {
+        UI::displayMainMenu();
+        int choice = UI::getMenuChoice();
+
+        switch (choice) {
+        case 1:
+            movePlayer();
+            displayCurrentRoom();
+            break;
+        case 2:
+            inventory.sort();
+            inventory.display();
+            break;
+        case 3:
+            UI::searchInventory(inventory);
+            break;
+        case 4:
+            handleBattle(inventory);
+            break;
+        case 5:
+            player.learnSkill(player.getSkillTree().getRoot());
+            break;
+        case 6:
+            player.printBattleLog();
+            break;
+        case 7:
+            if (room4->monster == nullptr) {
+                std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
+            }
+            UI::displayExitMessage();
+            playing = false;
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    }
 }

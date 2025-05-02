@@ -1,15 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "SkillTree.h"
+#include "Monster.h"
 #include <string>
 #include <vector>
 #include <stack>
-#include "SkillTree.h"
-#include "Monster.h"
+#include <iostream>
+#include <cstdlib>
 
 class Player {
 private:
-    std::string name;
     int hp;
     int mana;
     int level;
@@ -18,6 +19,8 @@ private:
     std::stack<std::string> battleLog; // History of battle actions
 
 public:
+    std::string name;
+
     // Default constructor
     Player();
 

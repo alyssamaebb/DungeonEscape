@@ -1,7 +1,4 @@
 #include "Player.h"
-#include "Monster.h"
-#include <iostream>
-#include <cstdlib>
 
 // default constructor
 Player::Player() : name("Unknown Player"), level(1), hp(100), mana(100) {
@@ -166,6 +163,9 @@ bool Player::battle(Monster* monster) {
         if (monster->hp <= 0) {
             std::cout << monster->name << " has been defeated!\n";
             logBattleAction(monster->name + " was defeated!");
+	    std::cout << "Your stats were replenished by Healing Amulet!\n";
+	    hp = 100;
+	    mana = 100;
             return true;
         }
 
@@ -179,6 +179,16 @@ bool Player::battle(Monster* monster) {
         if (hp <= 0) {
             std::cout << name << " has been defeated!\n";
             logBattleAction(name + " was defeated!");
+            hp = 100;
+            mana = 100;
+            if (monster->name == "Goblin")
+            {
+                monster->hp = 100;
+            }
+            else if (monster->name == "Orc")
+            {
+                monster->hp = 200;
+            }
             return false;
         }
     }

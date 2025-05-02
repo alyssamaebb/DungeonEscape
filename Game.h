@@ -5,7 +5,10 @@
 
 #include <map>
 #include <string>
+#include "Player.h"
 #include "Room.h"
+#include "Monster.h"
+#include "Inventory.h"
 
 class Room;
 
@@ -21,13 +24,17 @@ public:
     Room* room3;
     Room* room4;
     Room* room5;
-    Game();
+    Player& player;
+
+    Game(Player& player);
     ~Game();
+
+    void start(Inventory& inventory);
     void movePlayer(); // Move to a neighboring room
     void createDungeon(); // Build the dungeon map
-    Room* findRoom(const std::string& roomName); // Find a room by its name
     void displayCurrentRoom(); // Display the current room's details
     void endGame();
+    void handleBattle(Inventory& inventory);
 };
 
 #endif // GAME_H

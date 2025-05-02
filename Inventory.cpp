@@ -1,6 +1,5 @@
 #include "Inventory.h"
-#include <iostream>
-#include <regex>
+#include "AnsiColors.h"
 
 // InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
@@ -55,7 +54,9 @@ bool Inventory::removeItem(std::string name) {
 // Display all items in the inventory
 void Inventory::display() {
     InventoryNode* current = head;
-    std::cout << "\nYour Inventory:\n";
+    std::cout << "\n" << "====================================\n";
+    std::cout << ANSI_WARNING_YELL << "         Your Inventory\n" << ANSI_RESET;
+    std::cout << "====================================" << "\n";
     while (current != nullptr) {
         std::cout << "- " << current->itemName << "\n";
         current = current->next;
@@ -80,23 +81,26 @@ void Inventory::sort() {
     } while (swapped);
 }
 
-// Search for an item by name
-bool Inventory::search(std::string name) {
-    InventoryNode* current = head;
-    while (current != nullptr) {
-        if (current->itemName == name) return true;
-        current = current->next;
-    }
-    return false;
-}
-
-// Search for an item using a regular expression
+// Search for items using a regular expression and display matching names
 bool Inventory::regexSearch(std::string pattern) {
     InventoryNode* current = head;
-    std::regex re(pattern);
-    while (current != nullptr) {
-        if (std::regex_search(current->itemName, re)) return true;
-        current = current->next;
-    }
-    return false;
+    bool found = false;
+    
+        std::regex re(pattern, std::regex_constants::icase);
+
+        std::cout << "\nMatching items:\n";
+
+        while (current != nullptr) {
+            if (std::regex_search(current->itemName, re)) {
+                std::cout << "- " << current->itemName << "\n";
+                found = true;
+            }
+            current = current->next;
+        }
+
+        if (!found) {
+            std::cout << "No items matched your search.\n";
+        }
+
+    return found;
 }
