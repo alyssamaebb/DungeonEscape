@@ -87,8 +87,7 @@ void Inventory::sort() {
 bool Inventory::regexSearch(std::string pattern) {
     InventoryNode* current = head;
     bool found = false;
-
-    try {
+    
         std::regex re(pattern, std::regex_constants::icase);
 
         std::cout << "\nMatching items:\n";
@@ -104,9 +103,6 @@ bool Inventory::regexSearch(std::string pattern) {
         if (!found) {
             std::cout << "No items matched your search.\n";
         }
-    }
-    catch (const std::regex_error& e) {
-        std::cout << "Invalid search pattern. Please try again.\n";
     }
 
     return found;
