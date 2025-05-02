@@ -2,8 +2,6 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include <iostream>
-#include <regex>
 #include <string>
 
 // Represents a single item node in the inventory linked list
