@@ -2,13 +2,9 @@
 #define PLAYER_H
 
 #include "SkillTree.h"
-#include "Skill.h"
-#include "Monster.h"
 #include <string>
 #include <vector>
 #include <stack>
-#include <iostream>
-#include <cstdlib>
 
 class Player {
 private:
