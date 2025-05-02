@@ -210,6 +210,7 @@ void Game::start(Inventory& inventory)
             break;
         default:
             std::cout << "Invalid choice. Please try again.\n";
+
         }
     }
 }
