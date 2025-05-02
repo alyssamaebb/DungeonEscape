@@ -11,7 +11,7 @@ std::string UI::askPlayerName() {
     std::cout << "\n\033[93mBefore your journey begins...\n";
     std::cout << "What is your name, brave adventurer?\n> \033[0m";
     std::getline(std::cin, name);
-
+	name = name + " \xF0\x9F\x9B\xA1\xEF\xB8\x8F";
     if (name.empty()) {
         name = "Unnamed Hero";  // Fallback default
     }
