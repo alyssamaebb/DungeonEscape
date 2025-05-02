@@ -29,6 +29,7 @@ public:
     Game(Player& player);
     ~Game();
 
+    void start(Inventory& inventory);
     void movePlayer(); // Move to a neighboring room
     void createDungeon(); // Build the dungeon map
     void displayCurrentRoom(); // Display the current room's details
