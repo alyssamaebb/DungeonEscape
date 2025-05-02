@@ -16,19 +16,17 @@ void waitForEnter(const std::string& line) {
 
 // Constructor: Set up game intro and create the dungeon
 Game::Game(Player& player) : player(player) {
-	// Display game title
 	std::cout << "=============================\n";
-	std::cout << "  DUNGEON ESCAPE GAME\n";
+	std::cout << "  \xF0\x9F\x8F\xb0 DUNGEON ESCAPE GAME \xF0\x9F\x8F\xb0\n"; 
 	std::cout << "=============================\n\n";
-
+	
     // Backstory one line at a time
-    waitForEnter(ANSI_BLOOD_RED "You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
-    waitForEnter(ANSI_WARNING_YELL "The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
-    waitForEnter(ANSI_BLOOD_RED "Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
-    waitForEnter(ANSI_WARNING_YELL "You hear distant footsteps... and realize you are not alone." ANSI_RESET);
-    waitForEnter(ANSI_BLOOD_RED "Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x9B\x8C You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "\xF0\x9F\xA7\xb1 The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x91\xBB Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "\xF0\x9F\x91\xa3 You hear distant footsteps... and realize you are not alone." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x94\x93 Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
 
-	// Create the dungeon
 	createDungeon();
 }
 
@@ -116,7 +114,7 @@ void Game::movePlayer() {
         return;
     }
 
-    std::cout << "Neighboring rooms:" << std::endl;
+    std::cout << "\xF0\x9F\x9A\xAA Neighboring rooms:\n";
     for (size_t i = 0; i < currentRoom->neighbors.size(); ++i) {
         std::cout << i + 1 << ". " << currentRoom->neighbors[i]->name << std::endl;
     }
@@ -138,7 +136,7 @@ void Game::movePlayer() {
 }
 void Game::endGame()
 {
-    std::cout << "GAME OVER!" << std::endl;
+    std::cout << "\xF0\x9F\x92\x80 GAME OVER! \xF0\x9F\x92\x80\n"; 
 }
 
 // Helper function for main.cpp
@@ -154,14 +152,14 @@ void Game::handleBattle(Inventory& inventory)
                 room4->connect(room1);
                 room4->connect(room2);
                 inventory.addItem("Goblin Key");
-                std::cout << ANSI_GREEN << "\nYou have acquired the Goblin Key!" << ANSI_RESET << std::endl;
+                std::cout << ANSI_GREEN << "\n\xF0\x9F\x97\x9D\xEF\xB8\x8F You have acquired the Goblin Key!" << ANSI_RESET << std::endl;  
             }
             else if (currentRoom->name == "Monster Lair 2") {
                 currentRoom->connect(room1);
                 currentRoom->connect(room2);
                 currentRoom->connect(room5);
                 inventory.addItem("Orc Key");
-                std::cout << ANSI_GREEN << "\nThe Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
+                std::cout << ANSI_GREEN << "\n\xF0\x9F\x97\x9D\xEF\xB8\x8F The Orc Key is hidden in the final room of the dungeon!" << ANSI_RESET << std::endl;
             }
         }
         else {
