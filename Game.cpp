@@ -174,3 +174,44 @@ void Game::handleBattle(Inventory& inventory)
         std::cout << "There is no monster to battle in this room.\n";
     }
 }
+
+void Game::start(Inventory& inventory)
+{
+    bool playing = true;
+    while (playing) {
+        UI::displayMainMenu();
+        int choice = UI::getMenuChoice();
+
+        switch (choice) {
+        case 1:
+            movePlayer();
+            displayCurrentRoom();
+            break;
+        case 2:
+            inventory.sort();
+            inventory.display();
+            break;
+        case 3:
+            UI::searchInventory(inventory);
+            break;
+        case 4:
+            handleBattle(inventory);
+            break;
+        case 5:
+            player.learnSkill(player.getSkillTree().getRoot());
+            break;
+        case 6:
+            player.printBattleLog();
+            break;
+        case 7:
+            if (room4->monster == nullptr) {
+                std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
+            }
+            UI::displayExitMessage();
+            playing = false;
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    }
+}
