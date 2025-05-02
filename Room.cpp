@@ -1,5 +1,6 @@
 // TEAMATE: Kandice Estrella
 #include "Room.h"
+#include "Monster.h"
 
 Room::Room(std::string n, std::string desc)
 {
