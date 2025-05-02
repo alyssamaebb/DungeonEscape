@@ -18,8 +18,6 @@ private:
     SkillNode* root;
 
     void display(SkillNode* node, int indent = 0) const;
-    bool isParentUnlocked(SkillNode* node, const std::string& skillName);
-
 public:
     SkillTree();
     ~SkillTree();
@@ -29,6 +27,7 @@ public:
     void displayTree() const;
     void unlockSkill(const std::string& skillName);
     bool isSkillUnlocked(const std::string& skillName);
+    bool isParentUnlocked(SkillNode* node, const std::string& skillName);
     SkillNode* getRoot();
 
     void deleteTree(SkillNode* node); // Destructor helper

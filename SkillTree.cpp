@@ -17,15 +17,15 @@ void SkillTree::deleteTree(SkillNode* node) {
 
 void SkillTree::buildTree() {
     // Root skill
-    root = new SkillNode(Skill("Fireball", 10, 25, "\xF0\x9F\x94\xA5"));
+    root = new SkillNode(Skill("Fireball\xF0\x9F\x94\xA5", 10, 25));
 
     // Left subtree
-    root->left = new SkillNode(Skill("Flame Burst", 15, 35, "\xF0\x9F\x92\xA5"));
-    root->left->left = new SkillNode(Skill("Ember Nova", 25, 70, "\xE2\x9C\xA8"));
+    root->left = new SkillNode(Skill("Flame Burst\xF0\x9F\x92\xA5", 15, 35));
+    root->left->left = new SkillNode(Skill("Ember Nova\xE2\x9C\xA8", 25, 70));
 
     // Right subtree
-    root->right = new SkillNode(Skill("Inferno", 20, 50, "\xF0\x9F\x8C\x8B"));
-    root->right->right = new SkillNode(Skill("Hellfire", 30, 90, "\xF0\x9F\x94\xA5\xF0\x9F\x94\xA5"));
+    root->right = new SkillNode(Skill("Inferno\xF0\x9F\x8C\x8B", 20, 50));
+    root->right->right = new SkillNode(Skill("Hellfire\xF0\x9F\x94\xA5\xF0\x9F\x94\xA5", 30, 90));
 }
 
 

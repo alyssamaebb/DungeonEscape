@@ -10,9 +10,8 @@ public:
     int manaCost;
     int damage;
     bool isUnlocked;
-    std::string emoji; // New attribute for the emoji
 
-    Skill(std::string name, int manaCost, int damage, std::string emoji);
+    Skill(std::string name, int manaCost, int damage);
     void unlock();
     void display() const;
 };
