@@ -16,11 +16,10 @@ void waitForEnter(const std::string& line) {
 
 // Constructor: Set up game intro and create the dungeon
 Game::Game(Player& player) : player(player) {
-	// Display game title
 	std::cout << "=============================\n";
-	std::cout << "  DUNGEON ESCAPE GAME\n";
+	std::cout << "  \xF0\x9F\x8F\xb0 DUNGEON ESCAPE GAME \xF0\x9F\x8F\xb0\n"; 
 	std::cout << "=============================\n\n";
-
+	
     // Backstory one line at a time
     waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x9B\x8C You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
     waitForEnter(ANSI_WARNING_YELL "\xF0\x9F\xA7\xb1 The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
