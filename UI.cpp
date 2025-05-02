@@ -21,14 +21,14 @@ std::string UI::askPlayerName() {
 
 // Display the main menu options for the player
 void UI::displayMainMenu() {
-	std::cout << ANSI_BRIGHT_WHITE "\n====== Escape Game Menu ======\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "1. Move to another room\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "2. View Inventory\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "3. Search Inventory\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "4. Battle (if monster in room)\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "5. Learn a Skill\n" ANSI_RESET;
-	std::cout << ANSI_BLOOD_RED "6. View Battle Log\n" ANSI_RESET;
-	std::cout << ANSI_BRIGHT_WHITE "7. Exit Game\n" ANSI_RESET;
+	std::cout << ANSI_BRIGHT_WHITE "\n====== \xF0\x9F\x8C\x9F Escape Game Menu \xF0\x9F\x8C\x9F ======\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "1. \xF0\x9F\x9A\xAA Move to another room\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "2. \xF0\x9F\x8E\x92 View Inventory\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "3. \xF0\x9F\x94\x8D Search Inventory\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "4. \xE2\x9A\x94\xEF\xB8\x8F Battle (if monster in room)\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "5. \xF0\x9F\x93\x9A Learn a Skill\n" ANSI_RESET;
+	std::cout << ANSI_BLOOD_RED "6. \xF0\x9F\x93\x9D View Battle Log\n" ANSI_RESET;
+	std::cout << ANSI_BRIGHT_WHITE "7. \xF0\x9F\x9A\xAA Exit Game\n" ANSI_RESET;
 }
 
 // Get the player's menu choice
@@ -37,7 +37,7 @@ int UI::getMenuChoice() {
 	int choice;
 	while (check)
 	{
-		std::cout << ANSI_WARNING_YELL "\nEnter your choice: " ANSI_RESET;
+		std::cout << ANSI_WARNING_YELL "\n\xF0\x9F\x8E\xAF Enter your choice: " ANSI_RESET; // 🎯
 		std::cin >> choice;
 		if (std::cin.fail())
 		{
@@ -56,7 +56,7 @@ int UI::getMenuChoice() {
 void UI::searchInventory(Inventory& inventory) {
     std::cin.ignore();
     std::string pattern;
-    std::cout << "\nEnter a keyword or pattern to search for items: ";
+    std::cout << "\n\xF0\x9F\x94\x8D Enter a keyword or pattern to search for items: "; // 🔍
     std::getline(std::cin, pattern);
 
     inventory.regexSearch(pattern);
@@ -64,5 +64,5 @@ void UI::searchInventory(Inventory& inventory) {
 
 void UI::displayExitMessage() {
 	std::cout << "==================================================\n";
-	std::cout << "Thank you for playing Dungeon Escape Game!\n";
+	std::cout << "\xF0\x9F\x8E\x89 Thank you for playing Dungeon Escape Game!\n"; // 🎉
 }
