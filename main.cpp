@@ -6,6 +6,7 @@
 #include "Inventory.h"
 #include "AnsiColors.h"
 #include <iostream>
+#include <windows.h>
 
 int main()
 {
