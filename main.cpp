@@ -63,10 +63,8 @@ int main()
 			if (game.room4->monster == nullptr)
 			{
 				std::cout << ANSI_BLUE << "\nYou used the Goblin and Orc Keys to escape the Dungeon!" << ANSI_RESET << std::endl;
-				playing = false; // Exit the game
 			}
-			std::cout << "==================================================\n";
-			std::cout << "Thank you for playing Dungeon Escape Game!\n";
+			UI::displayExitMessage(); 
 			playing = false; // Exit the game
 			break;
 		default:
