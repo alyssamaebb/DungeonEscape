@@ -48,3 +48,8 @@ void UI::searchInventory(Inventory& inventory) {
 
     inventory.regexSearch(pattern);
 }
+
+void UI::displayExitMessage() {
+	std::cout << "==================================================\n";
+	std::cout << "Thank you for playing Dungeon Escape Game!\n";
+}
