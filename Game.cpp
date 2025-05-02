@@ -22,13 +22,12 @@ Game::Game(Player& player) : player(player) {
 	std::cout << "=============================\n\n";
 
     // Backstory one line at a time
-    waitForEnter(ANSI_BLOOD_RED "You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
-    waitForEnter(ANSI_WARNING_YELL "The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
-    waitForEnter(ANSI_BLOOD_RED "Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
-    waitForEnter(ANSI_WARNING_YELL "You hear distant footsteps... and realize you are not alone." ANSI_RESET);
-    waitForEnter(ANSI_BLOOD_RED "Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x9B\x8C You wake up in a dark, cold dungeon with no memory of how you got here." ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "\xF0\x9F\xA7\xb1 The stone walls are damp, and the air smells of rust and decay." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x91\xBB Whispers echo through the stone halls... are they real, or just in your mind?" ANSI_RESET);
+    waitForEnter(ANSI_WARNING_YELL "\xF0\x9F\x91\xa3 You hear distant footsteps... and realize you are not alone." ANSI_RESET);
+    waitForEnter(ANSI_BLOOD_RED "\xF0\x9F\x94\x93 Somewhere ahead lies your only chance at escape - if you can survive." ANSI_RESET);
 
-	// Create the dungeon
 	createDungeon();
 }
 
