@@ -13,8 +13,8 @@ int main()
 	SetConsoleOutputCP(CP_UTF8); // Ensures correct character encoding
 	UI ui;
 
-    	std::string playerName = ui.askPlayerName(); // Ask for player's name first
-    	Player player(playerName); // Create player object with that name
+    std::string playerName = ui.askPlayerName(); // Ask for player's name first
+    Player player(playerName); // Create player object with that name
 	Game game(player); // Create the game object
 	Inventory inventory; // Create the inventory for the player
 
