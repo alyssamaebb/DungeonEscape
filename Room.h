@@ -2,9 +2,10 @@
 #ifndef ROOM_H
 #define ROOM_H
 
-#include "Monster.h"
 #include <vector>
 #include <string>
+
+class Monster; // Forward declaration
 
 //---------------------------------------------
 // Room (Graph Node)
