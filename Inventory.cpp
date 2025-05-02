@@ -1,5 +1,7 @@
 #include "Inventory.h"
 #include "AnsiColors.h"
+#include <iostream>
+#include <regex>
 
 // InventoryNode constructor
 InventoryNode::InventoryNode(std::string name) {
