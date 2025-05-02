@@ -3,8 +3,11 @@
 #ifndef UI_H
 #define UI_H
 
-#include <string>
 #include "Inventory.h"
+#include <iostream>
+#include <string>
+#include <regex>
+#include <string>
 
 // Handles user interface display and input gathering
 class UI {
